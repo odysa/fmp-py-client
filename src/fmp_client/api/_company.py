@@ -1,6 +1,5 @@
 """Company profile and data API endpoints."""
 
-
 from fmp_client._types import JSONArray
 
 
