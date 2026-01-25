@@ -136,49 +136,49 @@ class NewsMixin:
             params={"symbol": symbol, "period": period, "page": page, "limit": limit},
         )
 
-    async def ratings_snapshot(self, symbol: str) -> JSONArray:
+    async def ratings_snapshot(self, *, symbol: str | None = None) -> JSONArray:
         """Get ratings snapshot."""
         return await self._request(  # type: ignore[attr-defined]
             "ratings-snapshot",
             params={"symbol": symbol},
         )
 
-    async def ratings_historical(self, symbol: str) -> JSONArray:
+    async def ratings_historical(self, *, symbol: str | None = None) -> JSONArray:
         """Get historical ratings."""
         return await self._request(  # type: ignore[attr-defined]
             "ratings-historical",
             params={"symbol": symbol},
         )
 
-    async def price_target_summary(self, symbol: str) -> JSONArray:
+    async def price_target_summary(self, *, symbol: str | None = None) -> JSONArray:
         """Get price target summary."""
         return await self._request(  # type: ignore[attr-defined]
             "price-target-summary",
             params={"symbol": symbol},
         )
 
-    async def price_target_consensus(self, symbol: str) -> JSONArray:
+    async def price_target_consensus(self, *, symbol: str | None = None) -> JSONArray:
         """Get price target consensus."""
         return await self._request(  # type: ignore[attr-defined]
             "price-target-consensus",
             params={"symbol": symbol},
         )
 
-    async def grades(self, symbol: str) -> JSONArray:
+    async def grades(self, *, symbol: str | None = None) -> JSONArray:
         """Get analyst grades."""
         return await self._request(  # type: ignore[attr-defined]
             "grades",
             params={"symbol": symbol},
         )
 
-    async def grades_historical(self, symbol: str) -> JSONArray:
+    async def grades_historical(self, *, symbol: str | None = None) -> JSONArray:
         """Get historical analyst grades."""
         return await self._request(  # type: ignore[attr-defined]
             "grades-historical",
             params={"symbol": symbol},
         )
 
-    async def grades_consensus(self, symbol: str) -> JSONArray:
+    async def grades_consensus(self, *, symbol: str | None = None) -> JSONArray:
         """Get analyst grades consensus."""
         return await self._request(  # type: ignore[attr-defined]
             "grades-consensus",

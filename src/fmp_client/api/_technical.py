@@ -8,10 +8,10 @@ class TechnicalMixin:
 
     async def sma(
         self,
-        symbol: str,
         *,
-        period_length: int = 20,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Simple Moving Average (SMA)."""
         return await self._request(  # type: ignore[attr-defined]
@@ -25,10 +25,10 @@ class TechnicalMixin:
 
     async def ema(
         self,
-        symbol: str,
         *,
-        period_length: int = 20,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Exponential Moving Average (EMA)."""
         return await self._request(  # type: ignore[attr-defined]
@@ -42,10 +42,10 @@ class TechnicalMixin:
 
     async def wma(
         self,
-        symbol: str,
         *,
-        period_length: int = 20,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Weighted Moving Average (WMA)."""
         return await self._request(  # type: ignore[attr-defined]
@@ -59,10 +59,10 @@ class TechnicalMixin:
 
     async def dema(
         self,
-        symbol: str,
         *,
-        period_length: int = 20,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Double Exponential Moving Average (DEMA)."""
         return await self._request(  # type: ignore[attr-defined]
@@ -76,10 +76,10 @@ class TechnicalMixin:
 
     async def tema(
         self,
-        symbol: str,
         *,
-        period_length: int = 20,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Triple Exponential Moving Average (TEMA)."""
         return await self._request(  # type: ignore[attr-defined]
@@ -93,10 +93,10 @@ class TechnicalMixin:
 
     async def rsi(
         self,
-        symbol: str,
         *,
-        period_length: int = 14,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Relative Strength Index (RSI)."""
         return await self._request(  # type: ignore[attr-defined]
@@ -110,10 +110,10 @@ class TechnicalMixin:
 
     async def standard_deviation(
         self,
-        symbol: str,
         *,
-        period_length: int = 20,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Standard Deviation."""
         return await self._request(  # type: ignore[attr-defined]
@@ -127,10 +127,10 @@ class TechnicalMixin:
 
     async def williams(
         self,
-        symbol: str,
         *,
-        period_length: int = 14,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Williams %R."""
         return await self._request(  # type: ignore[attr-defined]
@@ -144,10 +144,10 @@ class TechnicalMixin:
 
     async def adx(
         self,
-        symbol: str,
         *,
-        period_length: int = 14,
-        timeframe: Timeframe = Timeframe.ONE_HOUR,
+        symbol: str | None = None,
+        period_length: int | None = None,
+        timeframe: Timeframe | None = None,
     ) -> JSONArray:
         """Get Average Directional Index (ADX)."""
         return await self._request(  # type: ignore[attr-defined]

@@ -36,8 +36,8 @@ class SECMixin:
 
     async def sec_filings_search_form_type(
         self,
-        form_type: str,
         *,
+        form_type: str | None = None,
         from_date: str | None = None,
         to_date: str | None = None,
         page: int | None = None,
@@ -57,8 +57,8 @@ class SECMixin:
 
     async def sec_filings_search_symbol(
         self,
-        symbol: str,
         *,
+        symbol: str | None = None,
         from_date: str | None = None,
         to_date: str | None = None,
         page: int | None = None,
@@ -78,8 +78,8 @@ class SECMixin:
 
     async def sec_filings_search_cik(
         self,
-        cik: int,
         *,
+        cik: int | None = None,
         from_date: str | None = None,
         to_date: str | None = None,
         page: int | None = None,
@@ -97,21 +97,27 @@ class SECMixin:
             },
         )
 
-    async def sec_filings_company_search_name(self, company: str) -> JSONArray:
+    async def sec_filings_company_search_name(
+        self, *, company: str | None = None
+    ) -> JSONArray:
         """Search SEC companies by name."""
         return await self._request(  # type: ignore[attr-defined]
             "sec-filings-company-search/name",
             params={"company": company},
         )
 
-    async def sec_filings_company_search_symbol(self, symbol: str) -> JSONArray:
+    async def sec_filings_company_search_symbol(
+        self, *, symbol: str | None = None
+    ) -> JSONArray:
         """Search SEC companies by symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "sec-filings-company-search/symbol",
             params={"symbol": symbol},
         )
 
-    async def sec_filings_company_search_cik(self, cik: int) -> JSONArray:
+    async def sec_filings_company_search_cik(
+        self, *, cik: int | None = None
+    ) -> JSONArray:
         """Search SEC companies by CIK."""
         return await self._request(  # type: ignore[attr-defined]
             "sec-filings-company-search/cik",

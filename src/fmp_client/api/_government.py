@@ -30,28 +30,28 @@ class GovernmentMixin:
             params={"page": page, "limit": limit},
         )
 
-    async def senate_trades(self, symbol: str) -> JSONArray:
+    async def senate_trades(self, *, symbol: str | None = None) -> JSONArray:
         """Get Senate trades for a symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "senate-trades",
             params={"symbol": symbol},
         )
 
-    async def senate_trades_by_name(self, name: str) -> JSONArray:
+    async def senate_trades_by_name(self, *, name: str | None = None) -> JSONArray:
         """Get Senate trades by official name."""
         return await self._request(  # type: ignore[attr-defined]
             "senate-trades-by-name",
             params={"name": name},
         )
 
-    async def house_trades(self, symbol: str) -> JSONArray:
+    async def house_trades(self, *, symbol: str | None = None) -> JSONArray:
         """Get House trades for a symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "house-trades",
             params={"symbol": symbol},
         )
 
-    async def house_trades_by_name(self, name: str) -> JSONArray:
+    async def house_trades_by_name(self, *, name: str | None = None) -> JSONArray:
         """Get House trades by official name."""
         return await self._request(  # type: ignore[attr-defined]
             "house-trades-by-name",

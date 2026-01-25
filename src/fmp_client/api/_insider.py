@@ -32,7 +32,8 @@ class InsiderMixin:
 
     async def insider_trading_reporting_name(
         self,
-        name: str,
+        *,
+        name: str | None = None,
     ) -> JSONArray:
         """Get insider trades by reporting name."""
         return await self._request(  # type: ignore[attr-defined]
@@ -44,7 +45,9 @@ class InsiderMixin:
         """Get insider trading transaction types."""
         return await self._request("insider-trading-transaction-type")  # type: ignore[attr-defined]
 
-    async def insider_trading_statistics(self, symbol: str) -> JSONArray:
+    async def insider_trading_statistics(
+        self, *, symbol: str | None = None
+    ) -> JSONArray:
         """Get insider trading statistics."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/statistics",
@@ -53,7 +56,8 @@ class InsiderMixin:
 
     async def acquisition_of_beneficial_ownership(
         self,
-        symbol: str,
+        *,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get acquisition of beneficial ownership data."""
         return await self._request(  # type: ignore[attr-defined]

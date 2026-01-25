@@ -6,7 +6,7 @@ from fmp_client._types import JSONArray
 class CalendarMixin:
     """Dividends, splits, earnings, and IPO endpoints."""
 
-    async def dividends(self, symbol: str) -> JSONArray:
+    async def dividends(self, *, symbol: str | None = None) -> JSONArray:
         """Get dividend history for a company."""
         return await self._request(  # type: ignore[attr-defined]
             "dividends",
@@ -17,7 +17,7 @@ class CalendarMixin:
         """Get upcoming dividend calendar."""
         return await self._request("dividends-calendar")  # type: ignore[attr-defined]
 
-    async def splits(self, symbol: str) -> JSONArray:
+    async def splits(self, *, symbol: str | None = None) -> JSONArray:
         """Get stock split history."""
         return await self._request(  # type: ignore[attr-defined]
             "splits",
@@ -28,7 +28,7 @@ class CalendarMixin:
         """Get upcoming stock splits calendar."""
         return await self._request("splits-calendar")  # type: ignore[attr-defined]
 
-    async def earnings(self, symbol: str) -> JSONArray:
+    async def earnings(self, *, symbol: str | None = None) -> JSONArray:
         """Get earnings data for a company."""
         return await self._request(  # type: ignore[attr-defined]
             "earnings",
@@ -45,8 +45,8 @@ class CalendarMixin:
 
     async def earning_call_transcript(
         self,
-        symbol: str,
         *,
+        symbol: str | None = None,
         quarter: int | None = None,
         year: int | None = None,
     ) -> JSONArray:
@@ -56,7 +56,9 @@ class CalendarMixin:
             params={"symbol": symbol, "quarter": quarter, "year": year},
         )
 
-    async def earning_call_transcript_dates(self, symbol: str) -> JSONArray:
+    async def earning_call_transcript_dates(
+        self, *, symbol: str | None = None
+    ) -> JSONArray:
         """Get available earnings call transcript dates."""
         return await self._request(  # type: ignore[attr-defined]
             "earning-call-transcript-dates",

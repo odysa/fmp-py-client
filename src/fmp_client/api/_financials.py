@@ -10,9 +10,9 @@ class FinancialsMixin:
 
     async def income_statement(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
+        period: Period | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get income statements."""
@@ -23,9 +23,9 @@ class FinancialsMixin:
 
     async def balance_sheet_statement(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
+        period: Period | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get balance sheet statements."""
@@ -36,9 +36,9 @@ class FinancialsMixin:
 
     async def cash_flow_statement(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
+        period: Period | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get cash flow statements."""
@@ -47,21 +47,23 @@ class FinancialsMixin:
             params={"symbol": symbol, "period": period, "limit": limit},
         )
 
-    async def income_statement_ttm(self, symbol: str) -> JSONArray:
+    async def income_statement_ttm(self, *, symbol: str | None = None) -> JSONArray:
         """Get trailing twelve months income statement."""
         return await self._request(  # type: ignore[attr-defined]
             "income-statement-ttm",
             params={"symbol": symbol},
         )
 
-    async def balance_sheet_statement_ttm(self, symbol: str) -> JSONArray:
+    async def balance_sheet_statement_ttm(
+        self, *, symbol: str | None = None
+    ) -> JSONArray:
         """Get trailing twelve months balance sheet."""
         return await self._request(  # type: ignore[attr-defined]
             "balance-sheet-statement-ttm",
             params={"symbol": symbol},
         )
 
-    async def cash_flow_statement_ttm(self, symbol: str) -> JSONArray:
+    async def cash_flow_statement_ttm(self, *, symbol: str | None = None) -> JSONArray:
         """Get trailing twelve months cash flow statement."""
         return await self._request(  # type: ignore[attr-defined]
             "cash-flow-statement-ttm",
@@ -83,9 +85,9 @@ class FinancialsMixin:
 
     async def income_statement_growth(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
+        period: Period | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get income statement growth metrics."""
@@ -96,9 +98,9 @@ class FinancialsMixin:
 
     async def balance_sheet_statement_growth(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
+        period: Period | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get balance sheet growth metrics."""
@@ -109,9 +111,9 @@ class FinancialsMixin:
 
     async def cash_flow_statement_growth(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
+        period: Period | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get cash flow statement growth metrics."""
@@ -122,9 +124,9 @@ class FinancialsMixin:
 
     async def financial_growth(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
+        period: Period | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get overall financial growth metrics."""
@@ -135,57 +137,49 @@ class FinancialsMixin:
 
     async def income_statement_as_reported(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
-        limit: int | None = None,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get income statement as reported."""
         return await self._request(  # type: ignore[attr-defined]
             "income-statement-as-reported",
-            params={"symbol": symbol, "period": period, "limit": limit},
+            params={"symbol": symbol},
         )
 
     async def balance_sheet_statement_as_reported(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
-        limit: int | None = None,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get balance sheet as reported."""
         return await self._request(  # type: ignore[attr-defined]
             "balance-sheet-statement-as-reported",
-            params={"symbol": symbol, "period": period, "limit": limit},
+            params={"symbol": symbol},
         )
 
     async def cash_flow_statement_as_reported(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
-        limit: int | None = None,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get cash flow statement as reported."""
         return await self._request(  # type: ignore[attr-defined]
             "cash-flow-statement-as-reported",
-            params={"symbol": symbol, "period": period, "limit": limit},
+            params={"symbol": symbol},
         )
 
     async def financial_statement_full_as_reported(
         self,
-        symbol: str,
         *,
-        period: Period = Period.ANNUAL,
-        limit: int | None = None,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get full financial statement as reported."""
         return await self._request(  # type: ignore[attr-defined]
             "financial-statement-full-as-reported",
-            params={"symbol": symbol, "period": period, "limit": limit},
+            params={"symbol": symbol},
         )
 
-    async def financial_reports_dates(self, symbol: str) -> JSONArray:
+    async def financial_reports_dates(self, *, symbol: str | None = None) -> JSONArray:
         """Get available financial report dates."""
         return await self._request(  # type: ignore[attr-defined]
             "financial-reports-dates",
@@ -194,20 +188,19 @@ class FinancialsMixin:
 
     async def financial_reports_json(
         self,
-        symbol: str,
         *,
-        year: int | None = None,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
     ) -> JSONObject:
         """Get financial reports in JSON format."""
         return await self._request(  # type: ignore[attr-defined]
             "financial-reports-json",
-            params={"symbol": symbol, "year": year, "period": period},
+            params={"symbol": symbol},
         )
 
     async def revenue_product_segmentation(
         self,
-        symbol: str,
+        *,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get revenue product segmentation."""
         return await self._request(  # type: ignore[attr-defined]
@@ -217,7 +210,8 @@ class FinancialsMixin:
 
     async def revenue_geographic_segmentation(
         self,
-        symbol: str,
+        *,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get revenue geographic segmentation."""
         return await self._request(  # type: ignore[attr-defined]
@@ -227,9 +221,9 @@ class FinancialsMixin:
 
     async def income_statement_bulk(
         self,
-        year: int,
         *,
-        period: Period = Period.ANNUAL,
+        year: int | None = None,
+        period: Period | None = None,
     ) -> JSONArray:
         """Get bulk income statements."""
         return await self._request(  # type: ignore[attr-defined]
@@ -239,9 +233,9 @@ class FinancialsMixin:
 
     async def balance_sheet_statement_bulk(
         self,
-        year: int,
         *,
-        period: Period = Period.ANNUAL,
+        year: int | None = None,
+        period: Period | None = None,
     ) -> JSONArray:
         """Get bulk balance sheet statements."""
         return await self._request(  # type: ignore[attr-defined]
@@ -251,9 +245,9 @@ class FinancialsMixin:
 
     async def cash_flow_statement_bulk(
         self,
-        year: int,
         *,
-        period: Period = Period.ANNUAL,
+        year: int | None = None,
+        period: Period | None = None,
     ) -> JSONArray:
         """Get bulk cash flow statements."""
         return await self._request(  # type: ignore[attr-defined]
@@ -263,22 +257,20 @@ class FinancialsMixin:
 
     async def financial_reports_xlsx(
         self,
-        symbol: str,
         *,
-        year: int | None = None,
-        period: Period = Period.ANNUAL,
+        symbol: str | None = None,
     ) -> Any:
         """Get financial reports in XLSX format."""
         return await self._request(  # type: ignore[attr-defined]
             "financial-reports-xlsx",
-            params={"symbol": symbol, "year": year, "period": period},
+            params={"symbol": symbol},
         )
 
     async def income_statement_growth_bulk(
         self,
-        year: int,
         *,
-        period: Period = Period.ANNUAL,
+        year: int | None = None,
+        period: Period | None = None,
     ) -> JSONArray:
         """Get bulk income statement growth data."""
         return await self._request(  # type: ignore[attr-defined]
@@ -288,9 +280,9 @@ class FinancialsMixin:
 
     async def balance_sheet_statement_growth_bulk(
         self,
-        year: int,
         *,
-        period: Period = Period.ANNUAL,
+        year: int | None = None,
+        period: Period | None = None,
     ) -> JSONArray:
         """Get bulk balance sheet statement growth data."""
         return await self._request(  # type: ignore[attr-defined]
@@ -300,9 +292,9 @@ class FinancialsMixin:
 
     async def cash_flow_statement_growth_bulk(
         self,
-        year: int,
         *,
-        period: Period = Period.ANNUAL,
+        year: int | None = None,
+        period: Period | None = None,
     ) -> JSONArray:
         """Get bulk cash flow statement growth data."""
         return await self._request(  # type: ignore[attr-defined]

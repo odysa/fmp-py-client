@@ -71,7 +71,7 @@ class BulkMixin:
             params={"year": year},
         )
 
-    async def eod_bulk(self, date: str) -> JSONArray:
+    async def eod_bulk(self, *, date: str | None = None) -> JSONArray:
         """Get bulk end-of-day data for a specific date (YYYY-MM-DD)."""
         return await self._request(  # type: ignore[attr-defined]
             "eod-bulk",

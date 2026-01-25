@@ -6,70 +6,70 @@ from fmp_client._types import JSONArray
 class QuotesMixin:
     """Stock quotes and price endpoints."""
 
-    async def quote(self, symbol: str) -> JSONArray:
+    async def quote(self, *, symbol: str | None = None) -> JSONArray:
         """Get real-time stock quote."""
         return await self._request(  # type: ignore[attr-defined]
             "quote",
             params={"symbol": symbol},
         )
 
-    async def quote_short(self, symbol: str) -> JSONArray:
+    async def quote_short(self, *, symbol: str | None = None) -> JSONArray:
         """Get short-form stock quote."""
         return await self._request(  # type: ignore[attr-defined]
             "quote-short",
             params={"symbol": symbol},
         )
 
-    async def aftermarket_trade(self, symbol: str) -> JSONArray:
+    async def aftermarket_trade(self, *, symbol: str | None = None) -> JSONArray:
         """Get aftermarket trade data."""
         return await self._request(  # type: ignore[attr-defined]
             "aftermarket-trade",
             params={"symbol": symbol},
         )
 
-    async def aftermarket_quote(self, symbol: str) -> JSONArray:
+    async def aftermarket_quote(self, *, symbol: str | None = None) -> JSONArray:
         """Get aftermarket quote data."""
         return await self._request(  # type: ignore[attr-defined]
             "aftermarket-quote",
             params={"symbol": symbol},
         )
 
-    async def stock_price_change(self, symbol: str) -> JSONArray:
+    async def stock_price_change(self, *, symbol: str | None = None) -> JSONArray:
         """Get stock price change data."""
         return await self._request(  # type: ignore[attr-defined]
             "stock-price-change",
             params={"symbol": symbol},
         )
 
-    async def batch_quote(self, symbols: str) -> JSONArray:
+    async def batch_quote(self, *, symbols: str | None = None) -> JSONArray:
         """Get quotes for multiple symbols (comma-separated)."""
         return await self._request(  # type: ignore[attr-defined]
             "batch-quote",
             params={"symbols": symbols},
         )
 
-    async def batch_quote_short(self, symbols: str) -> JSONArray:
+    async def batch_quote_short(self, *, symbols: str | None = None) -> JSONArray:
         """Get short-form quotes for multiple symbols."""
         return await self._request(  # type: ignore[attr-defined]
             "batch-quote-short",
             params={"symbols": symbols},
         )
 
-    async def batch_aftermarket_trade(self, symbols: str) -> JSONArray:
+    async def batch_aftermarket_trade(self, *, symbols: str | None = None) -> JSONArray:
         """Get aftermarket trades for multiple symbols."""
         return await self._request(  # type: ignore[attr-defined]
             "batch-aftermarket-trade",
             params={"symbols": symbols},
         )
 
-    async def batch_aftermarket_quote(self, symbols: str) -> JSONArray:
+    async def batch_aftermarket_quote(self, *, symbols: str | None = None) -> JSONArray:
         """Get aftermarket quotes for multiple symbols."""
         return await self._request(  # type: ignore[attr-defined]
             "batch-aftermarket-quote",
             params={"symbols": symbols},
         )
 
-    async def batch_exchange_quote(self, exchange: str) -> JSONArray:
+    async def batch_exchange_quote(self, *, exchange: str | None = None) -> JSONArray:
         """Get quotes for all symbols on an exchange."""
         return await self._request(  # type: ignore[attr-defined]
             "batch-exchange-quote",

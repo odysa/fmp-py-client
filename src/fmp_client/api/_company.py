@@ -6,28 +6,28 @@ from fmp_client._types import JSONArray
 class CompanyMixin:
     """Company profile and data endpoints."""
 
-    async def profile(self, symbol: str) -> JSONArray:
+    async def profile(self, *, symbol: str | None = None) -> JSONArray:
         """Get company profile data."""
         return await self._request(  # type: ignore[attr-defined]
             "profile",
             params={"symbol": symbol},
         )
 
-    async def profile_cik(self, cik: int) -> JSONArray:
+    async def profile_cik(self, *, cik: int | None = None) -> JSONArray:
         """Get company profile by CIK number."""
         return await self._request(  # type: ignore[attr-defined]
             "profile-cik",
             params={"cik": cik},
         )
 
-    async def company_notes(self, symbol: str) -> JSONArray:
+    async def company_notes(self, *, symbol: str | None = None) -> JSONArray:
         """Get company notes."""
         return await self._request(  # type: ignore[attr-defined]
             "company-notes",
             params={"symbol": symbol},
         )
 
-    async def stock_peers(self, symbol: str) -> JSONArray:
+    async def stock_peers(self, *, symbol: str | None = None) -> JSONArray:
         """Get stock peer comparison."""
         return await self._request(  # type: ignore[attr-defined]
             "stock-peers",
@@ -81,56 +81,62 @@ class CompanyMixin:
             },
         )
 
-    async def key_executives(self, symbol: str) -> JSONArray:
+    async def key_executives(self, *, symbol: str | None = None) -> JSONArray:
         """Get key executives for a company."""
         return await self._request(  # type: ignore[attr-defined]
             "key-executives",
             params={"symbol": symbol},
         )
 
-    async def executive_compensation(self, symbol: str) -> JSONArray:
+    async def executive_compensation(self, *, symbol: str | None = None) -> JSONArray:
         """Get executive compensation data."""
         return await self._request(  # type: ignore[attr-defined]
             "governance-executive-compensation",
             params={"symbol": symbol},
         )
 
-    async def employee_count(self, symbol: str) -> JSONArray:
+    async def employee_count(self, *, symbol: str | None = None) -> JSONArray:
         """Get employee count for a company."""
         return await self._request(  # type: ignore[attr-defined]
             "employee-count",
             params={"symbol": symbol},
         )
 
-    async def historical_employee_count(self, symbol: str) -> JSONArray:
+    async def historical_employee_count(
+        self, *, symbol: str | None = None
+    ) -> JSONArray:
         """Get historical employee count."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-employee-count",
             params={"symbol": symbol},
         )
 
-    async def market_capitalization(self, symbol: str) -> JSONArray:
+    async def market_capitalization(self, *, symbol: str | None = None) -> JSONArray:
         """Get current market capitalization."""
         return await self._request(  # type: ignore[attr-defined]
             "market-capitalization",
             params={"symbol": symbol},
         )
 
-    async def market_capitalization_batch(self, symbols: str) -> JSONArray:
+    async def market_capitalization_batch(
+        self, *, symbols: str | None = None
+    ) -> JSONArray:
         """Get market capitalization for multiple symbols (comma-separated)."""
         return await self._request(  # type: ignore[attr-defined]
             "market-capitalization-batch",
             params={"symbols": symbols},
         )
 
-    async def historical_market_capitalization(self, symbol: str) -> JSONArray:
+    async def historical_market_capitalization(
+        self, *, symbol: str | None = None
+    ) -> JSONArray:
         """Get historical market capitalization."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-market-capitalization",
             params={"symbol": symbol},
         )
 
-    async def shares_float(self, symbol: str) -> JSONArray:
+    async def shares_float(self, *, symbol: str | None = None) -> JSONArray:
         """Get shares float data."""
         return await self._request(  # type: ignore[attr-defined]
             "shares-float",

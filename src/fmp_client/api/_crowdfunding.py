@@ -20,7 +20,8 @@ class CrowdfundingMixin:
 
     async def crowdfunding_offerings_search(
         self,
-        name: str,
+        *,
+        name: str | None = None,
     ) -> JSONArray:
         """Search crowdfunding offerings."""
         return await self._request(  # type: ignore[attr-defined]
@@ -51,7 +52,7 @@ class CrowdfundingMixin:
             params={"page": page, "limit": limit},
         )
 
-    async def fundraising_search(self, name: str) -> JSONArray:
+    async def fundraising_search(self, *, name: str | None = None) -> JSONArray:
         """Search fundraising data."""
         return await self._request(  # type: ignore[attr-defined]
             "fundraising-search",
