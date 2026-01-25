@@ -9,57 +9,45 @@ class InsiderMixin:
     async def insider_trading_latest(
         self,
         *,
-        symbol: str | None = None,
+        page: int | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get latest insider trades."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/latest",
-            params={"symbol": symbol, "limit": limit},
+            params={"page": page, "limit": limit},
         )
 
     async def insider_trading_search(
         self,
         *,
-        symbol: str | None = None,
-        name: str | None = None,
-        officer_title: str | None = None,
+        page: int | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Search insider trades."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/search",
-            params={
-                "symbol": symbol,
-                "name": name,
-                "officerTitle": officer_title,
-                "limit": limit,
-            },
+            params={"page": page, "limit": limit},
         )
 
     async def insider_trading_reporting_name(
         self,
-        reporting_name: str,
         *,
-        limit: int | None = None,
+        name: str | None = None,
     ) -> JSONArray:
         """Get insider trades by reporting name."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/reporting-name",
-            params={"reportingName": reporting_name, "limit": limit},
+            params={"name": name},
         )
 
-    async def insider_trading_transaction_type(
-        self,
-        symbol: str,
-    ) -> JSONArray:
+    async def insider_trading_transaction_type(self) -> JSONArray:
         """Get insider trading transaction types."""
-        return await self._request(  # type: ignore[attr-defined]
-            "insider-trading-transaction-type",
-            params={"symbol": symbol},
-        )
+        return await self._request("insider-trading-transaction-type")  # type: ignore[attr-defined]
 
-    async def insider_trading_statistics(self, symbol: str) -> JSONArray:
+    async def insider_trading_statistics(
+        self, *, symbol: str | None = None
+    ) -> JSONArray:
         """Get insider trading statistics."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/statistics",
@@ -68,7 +56,8 @@ class InsiderMixin:
 
     async def acquisition_of_beneficial_ownership(
         self,
-        symbol: str,
+        *,
+        symbol: str | None = None,
     ) -> JSONArray:
         """Get acquisition of beneficial ownership data."""
         return await self._request(  # type: ignore[attr-defined]
@@ -76,74 +65,109 @@ class InsiderMixin:
             params={"symbol": symbol},
         )
 
-    async def institutional_ownership_latest(self, symbol: str) -> JSONArray:
+    async def institutional_ownership_latest(
+        self,
+        *,
+        page: int | None = None,
+        limit: int | None = None,
+    ) -> JSONArray:
         """Get latest institutional ownership."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/latest",
-            params={"symbol": symbol},
+            params={"page": page, "limit": limit},
         )
 
     async def institutional_ownership_extract(
         self,
-        symbol: str,
         *,
-        date: str | None = None,
+        cik: int | None = None,
+        year: int | None = None,
+        quarter: int | None = None,
     ) -> JSONArray:
         """Get institutional ownership extract."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/extract",
-            params={"symbol": symbol, "date": date},
+            params={"cik": cik, "year": year, "quarter": quarter},
         )
 
-    async def institutional_ownership_dates(self, symbol: str) -> JSONArray:
+    async def institutional_ownership_dates(
+        self,
+        *,
+        cik: int | None = None,
+    ) -> JSONArray:
         """Get institutional ownership data dates."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/dates",
-            params={"symbol": symbol},
+            params={"cik": cik},
         )
 
     async def institutional_ownership_holder_analytics(
         self,
         *,
         symbol: str | None = None,
-        cik: str | None = None,
+        year: int | None = None,
+        quarter: int | None = None,
+        page: int | None = None,
+        limit: int | None = None,
     ) -> JSONArray:
         """Get institutional holder analytics."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/extract-analytics/holder",
-            params={"symbol": symbol, "cik": cik},
+            params={
+                "symbol": symbol,
+                "year": year,
+                "quarter": quarter,
+                "page": page,
+                "limit": limit,
+            },
         )
 
     async def institutional_ownership_holder_performance_summary(
         self,
         *,
-        symbol: str | None = None,
-        cik: str | None = None,
+        cik: int | None = None,
+        page: int | None = None,
     ) -> JSONArray:
         """Get institutional holder performance summary."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/holder-performance-summary",
-            params={"symbol": symbol, "cik": cik},
+            params={"cik": cik, "page": page},
         )
 
     async def institutional_ownership_holder_industry_breakdown(
         self,
         *,
-        symbol: str | None = None,
-        cik: str | None = None,
+        cik: int | None = None,
+        year: int | None = None,
+        quarter: int | None = None,
     ) -> JSONArray:
         """Get institutional holder industry breakdown."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/holder-industry-breakdown",
-            params={"symbol": symbol, "cik": cik},
+            params={"cik": cik, "year": year, "quarter": quarter},
         )
 
     async def institutional_ownership_symbol_positions_summary(
         self,
-        symbol: str,
+        *,
+        symbol: str | None = None,
+        year: int | None = None,
+        quarter: int | None = None,
     ) -> JSONArray:
         """Get institutional symbol positions summary."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/symbol-positions-summary",
-            params={"symbol": symbol},
+            params={"symbol": symbol, "year": year, "quarter": quarter},
+        )
+
+    async def institutional_ownership_industry_summary(
+        self,
+        *,
+        year: int | None = None,
+        quarter: int | None = None,
+    ) -> JSONArray:
+        """Get institutional ownership industry summary."""
+        return await self._request(  # type: ignore[attr-defined]
+            "institutional-ownership/industry-summary",
+            params={"year": year, "quarter": quarter},
         )

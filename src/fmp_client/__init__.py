@@ -10,7 +10,7 @@ from fmp_client._exceptions import (
     FMPRateLimitError,
     FMPTimeoutError,
 )
-from fmp_client._types import Interval, Period
+from fmp_client._types import Period, Timeframe
 
 __all__ = [
     "AsyncFMPClient",
@@ -21,6 +21,6 @@ __all__ = [
     "FMPNotFoundError",
     "FMPRateLimitError",
     "FMPTimeoutError",
-    "Interval",
     "Period",
+    "Timeframe",
 ]

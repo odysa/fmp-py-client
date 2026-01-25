@@ -14,8 +14,8 @@ class Period(StrEnum):
     QUARTER = "quarter"
 
 
-class Interval(StrEnum):
-    """Chart time interval."""
+class Timeframe(StrEnum):
+    """Technical indicator timeframe."""
 
     ONE_MIN = "1min"
     FIVE_MIN = "5min"
@@ -23,3 +23,4 @@ class Interval(StrEnum):
     THIRTY_MIN = "30min"
     ONE_HOUR = "1hour"
     FOUR_HOUR = "4hour"
+    ONE_DAY = "1day"

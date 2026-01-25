@@ -10,7 +10,7 @@ class EconomicsMixin:
         """Get US treasury rates."""
         return await self._request("treasury-rates")  # type: ignore[attr-defined]
 
-    async def economic_indicators(self, name: str) -> JSONArray:
+    async def economic_indicators(self, *, name: str | None = None) -> JSONArray:
         """Get economic indicators by name (e.g., GDP, CPI)."""
         return await self._request(  # type: ignore[attr-defined]
             "economic-indicators",
@@ -45,7 +45,7 @@ class EconomicsMixin:
         """Get list of available cryptocurrencies."""
         return await self._request("cryptocurrency-list")  # type: ignore[attr-defined]
 
-    async def exchange_market_hours(self, exchange: str) -> JSONArray:
+    async def exchange_market_hours(self, *, exchange: str | None = None) -> JSONArray:
         """Get market hours for an exchange."""
         return await self._request(  # type: ignore[attr-defined]
             "exchange-market-hours",
@@ -56,7 +56,7 @@ class EconomicsMixin:
         """Get market hours for all exchanges."""
         return await self._request("all-exchange-market-hours")  # type: ignore[attr-defined]
 
-    async def holidays_by_exchange(self, exchange: str) -> JSONArray:
+    async def holidays_by_exchange(self, *, exchange: str | None = None) -> JSONArray:
         """Get holidays for an exchange."""
         return await self._request(  # type: ignore[attr-defined]
             "holidays-by-exchange",

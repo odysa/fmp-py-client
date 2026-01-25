@@ -20,17 +20,25 @@ class CrowdfundingMixin:
 
     async def crowdfunding_offerings_search(
         self,
-        search_term: str,
+        *,
+        name: str | None = None,
     ) -> JSONArray:
         """Search crowdfunding offerings."""
         return await self._request(  # type: ignore[attr-defined]
             "crowdfunding-offerings-search",
-            params={"search_term": search_term},
+            params={"name": name},
         )
 
-    async def crowdfunding_offerings(self) -> JSONArray:
-        """Get all crowdfunding offerings."""
-        return await self._request("crowdfunding-offerings")  # type: ignore[attr-defined]
+    async def crowdfunding_offerings(
+        self,
+        *,
+        cik: int | None = None,
+    ) -> JSONArray:
+        """Get crowdfunding offerings."""
+        return await self._request(  # type: ignore[attr-defined]
+            "crowdfunding-offerings",
+            params={"cik": cik},
+        )
 
     async def fundraising_latest(
         self,
@@ -44,24 +52,24 @@ class CrowdfundingMixin:
             params={"page": page, "limit": limit},
         )
 
-    async def fundraising_search(self, search_term: str) -> JSONArray:
+    async def fundraising_search(self, *, name: str | None = None) -> JSONArray:
         """Search fundraising data."""
         return await self._request(  # type: ignore[attr-defined]
             "fundraising-search",
-            params={"search_term": search_term},
+            params={"name": name},
         )
 
-    async def fundraising(self) -> JSONArray:
-        """Get all fundraising data."""
-        return await self._request("fundraising")  # type: ignore[attr-defined]
-
-    async def ipos_prospectus(
+    async def fundraising(
         self,
         *,
-        symbol: str | None = None,
+        cik: int | None = None,
     ) -> JSONArray:
-        """Get IPO prospectus data."""
+        """Get fundraising data."""
         return await self._request(  # type: ignore[attr-defined]
-            "ipos-prospectus",
-            params={"symbol": symbol},
+            "fundraising",
+            params={"cik": cik},
         )
+
+    async def ipos_prospectus(self) -> JSONArray:
+        """Get IPO prospectus data."""
+        return await self._request("ipos-prospectus")  # type: ignore[attr-defined]
