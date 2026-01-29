@@ -27,9 +27,7 @@ class TestBaseClient:
 
     def test_init_with_custom_values(self, api_key, base_url):
         """Test initialization with custom values."""
-        client = BaseClient(
-            api_key, base_url=base_url, timeout=60.0
-        )
+        client = BaseClient(api_key, base_url=base_url, timeout=60.0)
 
         assert client._api_key == api_key
         assert client._base_url == base_url

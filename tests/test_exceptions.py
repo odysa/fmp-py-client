@@ -1,6 +1,5 @@
 """Tests for the exceptions module."""
 
-
 from fmp_client._exceptions import (
     FMPError,
     FMPAPIError,

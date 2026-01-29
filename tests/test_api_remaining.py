@@ -367,7 +367,9 @@ class TestHistoricalMixinRemaining:
     """Tests for remaining historical API endpoints."""
 
     @pytest.mark.asyncio
-    async def test_historical_price_eod_non_split_adjusted(self, api_key, mock_transport):
+    async def test_historical_price_eod_non_split_adjusted(
+        self, api_key, mock_transport
+    ):
         """Test historical_price_eod_non_split_adjusted endpoint."""
         expected = [{"date": "2024-01-01", "close": 150.0}]
 
@@ -382,7 +384,9 @@ class TestHistoricalMixinRemaining:
         assert result == expected
 
     @pytest.mark.asyncio
-    async def test_historical_price_eod_dividend_adjusted(self, api_key, mock_transport):
+    async def test_historical_price_eod_dividend_adjusted(
+        self, api_key, mock_transport
+    ):
         """Test historical_price_eod_dividend_adjusted endpoint."""
         expected = [{"date": "2024-01-01", "close": 149.5}]
 
