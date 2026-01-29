@@ -200,7 +200,7 @@ history = await client.historical_dowjones_constituent()
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def market_examples():
     async with AsyncFMPClient("your-api-key") as client:

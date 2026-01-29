@@ -1,6 +1,6 @@
 """Valuation and DCF API endpoints."""
 
-from fmp_client._types import JSONArray
+from fmp_py_client._types import JSONArray
 
 
 class ValuationMixin:

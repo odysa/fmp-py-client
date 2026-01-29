@@ -132,7 +132,7 @@ owner = await client.owner_earnings(symbol="AAPL")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def analyze_metrics():
     async with AsyncFMPClient("your-api-key") as client:

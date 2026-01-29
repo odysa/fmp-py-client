@@ -3,7 +3,7 @@
 import pytest
 import httpx
 
-from fmp_client import AsyncFMPClient, Period
+from fmp_py_client import AsyncFMPClient, Period
 
 
 class TestQuotesMixin:
@@ -413,7 +413,7 @@ class TestModuleImports:
 
     def test_main_module_exports(self):
         """Test that main module exports expected items."""
-        from fmp_client import (
+        from fmp_py_client import (
             AsyncFMPClient,
             FMPAPIError,
             FMPAuthenticationError,
@@ -439,7 +439,7 @@ class TestModuleImports:
 
     def test_all_exports_match(self):
         """Test that __all__ contains the expected exports."""
-        import fmp_client
+        import fmp_py_client
 
         expected_exports = {
             "AsyncFMPClient",
@@ -454,4 +454,4 @@ class TestModuleImports:
             "Timeframe",
         }
 
-        assert set(fmp_client.__all__) == expected_exports
+        assert set(fmp_py_client.__all__) == expected_exports

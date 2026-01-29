@@ -37,7 +37,7 @@ Used as the return type for most API methods that return collections.
 Financial reporting period.
 
 ```python
-from fmp_client import Period
+from fmp_py_client import Period
 
 # Annual financial statements
 income = await client.income_statement(
@@ -68,7 +68,7 @@ income = await client.income_statement(
 Technical indicator timeframe.
 
 ```python
-from fmp_client import Timeframe
+from fmp_py_client import Timeframe
 
 # Daily SMA
 sma = await client.sma(
@@ -102,7 +102,7 @@ rsi = await client.rsi(
 Since both enums inherit from `StrEnum`, you can use them interchangeably with strings:
 
 ```python
-from fmp_client import Period, Timeframe
+from fmp_py_client import Period, Timeframe
 
 # Using enum values
 income = await client.income_statement(symbol="AAPL", period=Period.ANNUAL)
@@ -116,8 +116,8 @@ income = await client.income_statement(symbol="AAPL", period="annual")
 For full IDE support, use the types in your own code:
 
 ```python
-from fmp_client import AsyncFMPClient, Period
-from fmp_client._types import JSONArray, JSONObject
+from fmp_py_client import AsyncFMPClient, Period
+from fmp_py_client._types import JSONArray, JSONObject
 
 async def get_financials(
     client: AsyncFMPClient,
@@ -149,6 +149,6 @@ The package includes a `py.typed` marker file, indicating full type hint support
 - Inline documentation in editors
 
 ```bash
-# Type check your code using the fmp-client types
+# Type check your code using the fmp-py-client types
 mypy your_script.py
 ```

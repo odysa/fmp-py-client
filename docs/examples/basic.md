@@ -8,7 +8,7 @@ This page demonstrates common use cases for the FMP Client.
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -28,7 +28,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -47,7 +47,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -72,7 +72,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -94,7 +94,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient, Period
+from fmp_py_client import AsyncFMPClient, Period
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -123,7 +123,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -155,7 +155,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     symbols = ["AAPL", "GOOGL", "MSFT", "AMZN", "META", "NVDA", "TSLA"]
@@ -179,7 +179,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import (
+from fmp_py_client import (
     AsyncFMPClient,
     FMPAuthenticationError,
     FMPRateLimitError,
@@ -208,7 +208,7 @@ asyncio.run(main())
 ```python
 import asyncio
 import os
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     api_key = os.environ.get("FMP_API_KEY")

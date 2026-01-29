@@ -265,7 +265,7 @@ all_float = await client.shares_float_all(page=0, limit=100)
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def company_examples():
     async with AsyncFMPClient("your-api-key") as client:

@@ -3,8 +3,8 @@
 import pytest
 import httpx
 
-from fmp_client._base import BaseClient, AsyncBaseClient, BASE_URL, API_PREFIX
-from fmp_client._exceptions import (
+from fmp_py_client._base import BaseClient, AsyncBaseClient, BASE_URL, API_PREFIX
+from fmp_py_client._exceptions import (
     FMPAPIError,
     FMPAuthenticationError,
     FMPConnectionError,

@@ -1,5 +1,5 @@
 [project]
-name = "fmp-client"
+name = "fmp-py-client"
 version = "0.1.0"
 description = "Async Python client for Financial Modeling Prep API"
 readme = "README.md"
@@ -25,10 +25,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/cbian/fmp-client"
-Documentation = "https://cbian.github.io/fmp-client/"
-Repository = "https://github.com/cbian/fmp-client"
-Issues = "https://github.com/cbian/fmp-client/issues"
+Homepage = "https://github.com/cbian/fmp-py-client"
+Documentation = "https://cbian.github.io/fmp-py-client/"
+Repository = "https://github.com/cbian/fmp-py-client"
+Issues = "https://github.com/cbian/fmp-py-client/issues"
 
 [dependency-groups]
 dev = [

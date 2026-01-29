@@ -5,7 +5,7 @@ The `AsyncFMPClient` provides access to all Financial Modeling Prep API endpoint
 ## Client Class
 
 ```python
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async with AsyncFMPClient(api_key="your-key") as client:
     # All API methods available on client

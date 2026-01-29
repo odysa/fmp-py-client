@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from fmp_client._types import JSONArray, JSONObject, Period
+from fmp_py_client._types import JSONArray, JSONObject, Period
 
 
 class FinancialsMixin:

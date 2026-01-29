@@ -228,7 +228,7 @@ quotes = await client.batch_index_quotes()
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def quote_examples():
     async with AsyncFMPClient("your-api-key") as client:

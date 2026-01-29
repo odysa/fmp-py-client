@@ -5,7 +5,7 @@
 The `AsyncFMPClient` accepts several configuration options:
 
 ```python
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 import httpx
 
 client = AsyncFMPClient(
@@ -53,7 +53,7 @@ For advanced use cases, you can provide your own httpx client:
 
 ```python
 import httpx
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 # Custom client with specific configuration
 custom_client = httpx.AsyncClient(
@@ -98,7 +98,7 @@ Best practice is to use environment variables for sensitive configuration:
 
 ```python
 import os
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 API_KEY = os.environ.get("FMP_API_KEY")
 if not API_KEY:
@@ -114,7 +114,7 @@ The async design allows efficient concurrent requests:
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def get_multiple_quotes(symbols: list[str]):
     async with AsyncFMPClient("your-api-key") as client:
@@ -132,7 +132,7 @@ The default httpx client includes connection pooling. For high-throughput applic
 
 ```python
 import httpx
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 custom_client = httpx.AsyncClient(
     limits=httpx.Limits(

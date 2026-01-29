@@ -95,7 +95,7 @@ ev = await client.enterprise_values(symbol="AAPL")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def valuation_examples():
     async with AsyncFMPClient("your-api-key") as client:

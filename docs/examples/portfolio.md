@@ -7,7 +7,7 @@ Examples for building portfolio tracking and monitoring applications.
 ```python
 import asyncio
 from dataclasses import dataclass
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 @dataclass
 class Position:
@@ -75,7 +75,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def analyze_diversification(client: AsyncFMPClient, symbols: list[str], weights: list[float]):
     """Analyze portfolio diversification by sector and industry."""
@@ -137,7 +137,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def monitor_watchlist(client: AsyncFMPClient, symbols: list[str]):
     """Monitor a watchlist with key metrics and alerts."""
@@ -194,7 +194,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def market_summary(client: AsyncFMPClient):
     """Generate daily market summary."""
@@ -255,7 +255,7 @@ asyncio.run(main())
 ```python
 import asyncio
 from datetime import datetime, timedelta
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def earnings_calendar(client: AsyncFMPClient, symbols: list[str]):
     """Track upcoming earnings for portfolio holdings."""

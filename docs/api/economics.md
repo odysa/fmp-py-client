@@ -138,7 +138,7 @@ holidays = await client.holidays_by_exchange(exchange="NYSE")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def economics_examples():
     async with AsyncFMPClient("your-api-key") as client:

@@ -233,7 +233,7 @@ summary = await client.institutional_ownership_industry_summary(
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def insider_examples():
     async with AsyncFMPClient("your-api-key") as client:

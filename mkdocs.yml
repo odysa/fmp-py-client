@@ -1,8 +1,8 @@
-site_name: FMP Client
+site_name: FMP Py Client
 site_description: Async Python client for Financial Modeling Prep API
-site_url: https://fmp-client.readthedocs.io
-repo_url: https://github.com/cbian/fmp-client
-repo_name: cbian/fmp-client
+site_url: https://fmp-py-client.readthedocs.io
+repo_url: https://github.com/cbian/fmp-py-client
+repo_name: cbian/fmp-py-client
 
 theme:
   name: material
@@ -97,6 +97,6 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/cbian/fmp-client
+      link: https://github.com/cbian/fmp-py-client
     - icon: fontawesome/brands/python
-      link: https://pypi.org/project/fmp-client/
+      link: https://pypi.org/project/fmp-py-client/

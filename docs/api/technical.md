@@ -9,7 +9,7 @@ Access technical indicators including moving averages, RSI, and more.
 Get Simple Moving Average (SMA).
 
 ```python
-from fmp_client import Timeframe
+from fmp_py_client import Timeframe
 
 sma = await client.sma(
     symbol="AAPL",
@@ -174,7 +174,7 @@ The `Timeframe` enum supports:
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient, Timeframe
+from fmp_py_client import AsyncFMPClient, Timeframe
 
 async def technical_examples():
     async with AsyncFMPClient("your-api-key") as client:

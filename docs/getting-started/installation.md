@@ -10,19 +10,19 @@
 Using pip:
 
 ```bash
-pip install fmp-client
+pip install fmp-py-client
 ```
 
 Using uv:
 
 ```bash
-uv add fmp-client
+uv add fmp-py-client
 ```
 
 Using poetry:
 
 ```bash
-poetry add fmp-client
+poetry add fmp-py-client
 ```
 
 ## Install from Source
@@ -30,8 +30,8 @@ poetry add fmp-client
 Clone the repository and install in development mode:
 
 ```bash
-git clone https://github.com/cbian/fmp-client.git
-cd fmp-client
+git clone https://github.com/cbian/fmp-py-client.git
+cd fmp-py-client
 uv sync
 ```
 
@@ -44,9 +44,9 @@ The package has minimal dependencies:
 ## Verify Installation
 
 ```python
-import fmp_client
+import fmp_py_client
 
-print(fmp_client.__all__)
+print(fmp_py_client.__all__)
 # ['AsyncFMPClient', 'FMPAPIError', 'FMPAuthenticationError', ...]
 ```
 
@@ -67,7 +67,7 @@ print(fmp_client.__all__)
 
     ```python
     import os
-    from fmp_client import AsyncFMPClient
+    from fmp_py_client import AsyncFMPClient
 
     client = AsyncFMPClient(os.environ["FMP_API_KEY"])
     ```

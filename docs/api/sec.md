@@ -185,7 +185,7 @@ classifications = await client.all_industry_classification()
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def sec_examples():
     async with AsyncFMPClient("your-api-key") as client:
