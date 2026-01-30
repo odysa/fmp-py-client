@@ -39,7 +39,7 @@ deals = await client.mergers_acquisitions_search(name="Microsoft")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def mergers_examples():
     async with AsyncFMPClient("your-api-key") as client:

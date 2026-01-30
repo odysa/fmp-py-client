@@ -220,7 +220,7 @@ consensus = await client.grades_consensus(symbol="AAPL")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def news_examples():
     async with AsyncFMPClient("your-api-key") as client:

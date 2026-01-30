@@ -85,7 +85,7 @@ symbols = await client.commitment_of_traders_list()
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def esg_examples():
     async with AsyncFMPClient("your-api-key") as client:

@@ -1,7 +1,7 @@
 """FMP (Financial Modeling Prep) API client."""
 
-from fmp_client._client import AsyncFMPClient
-from fmp_client._exceptions import (
+from fmp_py_client._client import AsyncFMPClient
+from fmp_py_client._exceptions import (
     FMPAPIError,
     FMPAuthenticationError,
     FMPConnectionError,
@@ -10,7 +10,7 @@ from fmp_client._exceptions import (
     FMPRateLimitError,
     FMPTimeoutError,
 )
-from fmp_client._types import Period, Timeframe
+from fmp_py_client._types import Period, Timeframe
 
 __all__ = [
     "AsyncFMPClient",

@@ -9,7 +9,7 @@ Access income statements, balance sheets, cash flow statements, and growth metri
 Get income statements.
 
 ```python
-from fmp_client import Period
+from fmp_py_client import Period
 
 income = await client.income_statement(
     symbol="AAPL",
@@ -320,7 +320,7 @@ bulk = await client.cash_flow_statement_growth_bulk(year=2023, period=Period.ANN
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient, Period
+from fmp_py_client import AsyncFMPClient, Period
 
 async def financial_analysis():
     async with AsyncFMPClient("your-api-key") as client:

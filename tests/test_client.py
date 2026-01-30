@@ -3,8 +3,8 @@
 import pytest
 import httpx
 
-from fmp_client import AsyncFMPClient
-from fmp_client._base import BASE_URL
+from fmp_py_client import AsyncFMPClient
+from fmp_py_client._base import BASE_URL
 
 
 class TestAsyncFMPClient:

@@ -1,9 +1,9 @@
-# fmp-client
+# fmp-py-client
 
-[![PyPI version](https://img.shields.io/pypi/v/fmp-client.svg)](https://pypi.org/project/fmp-client/)
-[![Python versions](https://img.shields.io/pypi/pyversions/fmp-client.svg)](https://pypi.org/project/fmp-client/)
-[![License](https://img.shields.io/pypi/l/fmp-client.svg)](https://github.com/cbian/fmp-client/blob/main/LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-mkdocs-blue.svg)](https://cbian.github.io/fmp-client/)
+[![PyPI version](https://img.shields.io/pypi/v/fmp-py-client.svg)](https://pypi.org/project/fmp-py-client/)
+[![Python versions](https://img.shields.io/pypi/pyversions/fmp-py-client.svg)](https://pypi.org/project/fmp-py-client/)
+[![License](https://img.shields.io/pypi/l/fmp-py-client.svg)](https://github.com/cbian/fmp-py-client/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-mkdocs-blue.svg)](https://cbian.github.io/fmp-py-client/)
 
 A fully asynchronous Python client for the [Financial Modeling Prep API](https://financialmodelingprep.com/). Access 180+ financial data endpoints with a modern, type-safe interface.
 
@@ -18,20 +18,20 @@ A fully asynchronous Python client for the [Financial Modeling Prep API](https:/
 ## Installation
 
 ```bash
-pip install fmp-client
+pip install fmp-py-client
 ```
 
 Or with [uv](https://github.com/astral-sh/uv):
 
 ```bash
-uv add fmp-client
+uv add fmp-py-client
 ```
 
 ## Quick Start
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -71,7 +71,7 @@ asyncio.run(main())
 ## Error Handling
 
 ```python
-from fmp_client import (
+from fmp_py_client import (
     AsyncFMPClient,
     FMPAuthenticationError,
     FMPRateLimitError,
@@ -91,11 +91,11 @@ async with AsyncFMPClient("your-api-key") as client:
 
 ## Documentation
 
-Full documentation is available at [cbian.github.io/fmp-client](https://cbian.github.io/fmp-client/).
+Full documentation is available at [cbian.github.io/fmp-py-client](https://cbian.github.io/fmp-py-client/).
 
-- [Getting Started](https://cbian.github.io/fmp-client/getting-started/installation/)
-- [API Reference](https://cbian.github.io/fmp-client/api/overview/)
-- [Examples](https://cbian.github.io/fmp-client/examples/basic-usage/)
+- [Getting Started](https://cbian.github.io/fmp-py-client/getting-started/installation/)
+- [API Reference](https://cbian.github.io/fmp-py-client/api/overview/)
+- [Examples](https://cbian.github.io/fmp-py-client/examples/basic-usage/)
 
 ## Requirements
 

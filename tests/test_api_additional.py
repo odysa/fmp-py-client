@@ -3,7 +3,7 @@
 import pytest
 import httpx
 
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 
 class TestCalendarMixin:

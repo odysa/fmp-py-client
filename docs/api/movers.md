@@ -42,7 +42,7 @@ actives = await client.most_actives()
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def movers_examples():
     async with AsyncFMPClient("your-api-key") as client:

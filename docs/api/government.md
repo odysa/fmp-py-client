@@ -104,7 +104,7 @@ trades = await client.house_trades_by_name(name="Nancy Pelosi")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def government_examples():
     async with AsyncFMPClient("your-api-key") as client:

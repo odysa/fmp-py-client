@@ -1,6 +1,6 @@
 """Tests for the types module."""
 
-from fmp_client._types import Period, Timeframe
+from fmp_py_client._types import Period, Timeframe
 
 
 class TestPeriod:

@@ -156,7 +156,7 @@ dates = await client.funds_disclosure_dates(symbol="AAPL")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def etf_examples():
     async with AsyncFMPClient("your-api-key") as client:

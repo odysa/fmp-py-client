@@ -134,7 +134,7 @@ history = await client.historical_industry_pe(industry="Software")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def sector_examples():
     async with AsyncFMPClient("your-api-key") as client:

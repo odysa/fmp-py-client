@@ -8,7 +8,7 @@ The recommended way to use the client is with an async context manager:
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -50,7 +50,7 @@ async with AsyncFMPClient(api_key) as client:
 ## Get Financial Statements
 
 ```python
-from fmp_client import AsyncFMPClient, Period
+from fmp_py_client import AsyncFMPClient, Period
 
 async with AsyncFMPClient(api_key) as client:
     # Annual income statements
@@ -111,7 +111,7 @@ async with AsyncFMPClient(api_key) as client:
 ## Error Handling
 
 ```python
-from fmp_client import (
+from fmp_py_client import (
     AsyncFMPClient,
     FMPAuthenticationError,
     FMPRateLimitError,

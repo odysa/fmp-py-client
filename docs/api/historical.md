@@ -186,7 +186,7 @@ chart = await client.historical_chart_4hour(
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def historical_examples():
     async with AsyncFMPClient("your-api-key") as client:

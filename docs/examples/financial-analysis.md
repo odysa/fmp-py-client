@@ -6,7 +6,7 @@ Advanced examples for financial analysis and research.
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient, Period
+from fmp_py_client import AsyncFMPClient, Period
 
 async def analyze_valuation(client: AsyncFMPClient, symbol: str):
     """Comprehensive valuation analysis for a stock."""
@@ -76,7 +76,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def assess_financial_health(client: AsyncFMPClient, symbol: str):
     """Assess company financial health using multiple metrics."""
@@ -150,7 +150,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient, Period
+from fmp_py_client import AsyncFMPClient, Period
 
 async def analyze_growth(client: AsyncFMPClient, symbol: str, years: int = 5):
     """Analyze revenue and earnings growth trends."""
@@ -215,7 +215,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def compare_peers(client: AsyncFMPClient, symbol: str):
     """Compare a stock with its peers."""
@@ -262,7 +262,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def analyze_dividends(client: AsyncFMPClient, symbol: str):
     """Analyze dividend history and yield."""

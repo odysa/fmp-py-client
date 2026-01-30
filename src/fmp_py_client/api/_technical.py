@@ -1,6 +1,6 @@
 """Technical indicators API endpoints."""
 
-from fmp_client._types import JSONArray, Timeframe
+from fmp_py_client._types import JSONArray, Timeframe
 
 
 class TechnicalMixin:

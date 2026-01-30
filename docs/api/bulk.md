@@ -150,7 +150,7 @@ eod = await client.eod_bulk(date="2024-01-15")
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def bulk_examples():
     async with AsyncFMPClient("your-api-key") as client:

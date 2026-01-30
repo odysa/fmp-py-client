@@ -21,7 +21,7 @@ FMPError (base)
 Base exception for all FMP client errors.
 
 ```python
-from fmp_client import FMPError
+from fmp_py_client import FMPError
 
 try:
     result = await client.quote(symbol="AAPL")
@@ -42,7 +42,7 @@ except FMPError as e:
 Error returned by the FMP API (non-2xx response).
 
 ```python
-from fmp_client import FMPAPIError
+from fmp_py_client import FMPAPIError
 
 try:
     result = await client.quote(symbol="AAPL")
@@ -66,7 +66,7 @@ except FMPAPIError as e:
 API key is invalid or missing (HTTP 401/403).
 
 ```python
-from fmp_client import FMPAuthenticationError
+from fmp_py_client import FMPAuthenticationError
 
 try:
     result = await client.quote(symbol="AAPL")
@@ -85,7 +85,7 @@ Rate limit exceeded (HTTP 429).
 
 ```python
 import asyncio
-from fmp_client import FMPRateLimitError
+from fmp_py_client import FMPRateLimitError
 
 try:
     result = await client.quote(symbol="AAPL")
@@ -111,7 +111,7 @@ except FMPRateLimitError as e:
 Requested resource not found (HTTP 404).
 
 ```python
-from fmp_client import FMPNotFoundError
+from fmp_py_client import FMPNotFoundError
 
 try:
     result = await client.quote(symbol="INVALID_SYMBOL")
@@ -128,7 +128,7 @@ except FMPNotFoundError as e:
 Network-level connection error.
 
 ```python
-from fmp_client import FMPConnectionError
+from fmp_py_client import FMPConnectionError
 
 try:
     result = await client.quote(symbol="AAPL")
@@ -143,7 +143,7 @@ except FMPConnectionError as e:
 Request timed out.
 
 ```python
-from fmp_client import FMPTimeoutError
+from fmp_py_client import FMPTimeoutError
 
 try:
     result = await client.quote(symbol="AAPL")
@@ -156,7 +156,7 @@ except FMPTimeoutError as e:
 ### Catch Specific Exceptions First
 
 ```python
-from fmp_client import (
+from fmp_py_client import (
     AsyncFMPClient,
     FMPAuthenticationError,
     FMPRateLimitError,
@@ -197,7 +197,7 @@ async with AsyncFMPClient(api_key) as client:
 
 ```python
 import asyncio
-from fmp_client import (
+from fmp_py_client import (
     AsyncFMPClient,
     FMPRateLimitError,
     FMPTimeoutError,

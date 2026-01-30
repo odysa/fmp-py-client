@@ -1,6 +1,6 @@
 """Bulk data API endpoints."""
 
-from fmp_client._types import JSONArray
+from fmp_py_client._types import JSONArray
 
 
 class BulkMixin:

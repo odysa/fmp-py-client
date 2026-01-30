@@ -15,7 +15,7 @@ A fully async Python client for the [Financial Modeling Prep (FMP) API](https://
 
 ```python
 import asyncio
-from fmp_client import AsyncFMPClient
+from fmp_py_client import AsyncFMPClient
 
 async def main():
     async with AsyncFMPClient("your-api-key") as client:
@@ -37,13 +37,13 @@ asyncio.run(main())
 ## Installation
 
 ```bash
-pip install fmp-client
+pip install fmp-py-client
 ```
 
 Or with `uv`:
 
 ```bash
-uv add fmp-client
+uv add fmp-py-client
 ```
 
 ## Requirements
