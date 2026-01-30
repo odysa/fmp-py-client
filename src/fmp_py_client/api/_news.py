@@ -146,28 +146,36 @@ class NewsMixin:
             params={"symbol": symbol, "period": period, "page": page, "limit": limit},
         )
 
-    async def ratings_snapshot(self, *, symbol: str | None = None) -> list[RatingSnapshot]:
+    async def ratings_snapshot(
+        self, *, symbol: str | None = None
+    ) -> list[RatingSnapshot]:
         """Get ratings snapshot."""
         return await self._request(  # type: ignore[attr-defined]
             "ratings-snapshot",
             params={"symbol": symbol},
         )
 
-    async def ratings_historical(self, *, symbol: str | None = None) -> list[HistoricalGrade]:
+    async def ratings_historical(
+        self, *, symbol: str | None = None
+    ) -> list[HistoricalGrade]:
         """Get historical ratings."""
         return await self._request(  # type: ignore[attr-defined]
             "ratings-historical",
             params={"symbol": symbol},
         )
 
-    async def price_target_summary(self, *, symbol: str | None = None) -> list[PriceTargetSummary]:
+    async def price_target_summary(
+        self, *, symbol: str | None = None
+    ) -> list[PriceTargetSummary]:
         """Get price target summary."""
         return await self._request(  # type: ignore[attr-defined]
             "price-target-summary",
             params={"symbol": symbol},
         )
 
-    async def price_target_consensus(self, *, symbol: str | None = None) -> list[PriceTargetConsensus]:
+    async def price_target_consensus(
+        self, *, symbol: str | None = None
+    ) -> list[PriceTargetConsensus]:
         """Get price target consensus."""
         return await self._request(  # type: ignore[attr-defined]
             "price-target-consensus",
@@ -181,14 +189,18 @@ class NewsMixin:
             params={"symbol": symbol},
         )
 
-    async def grades_historical(self, *, symbol: str | None = None) -> list[HistoricalGrade]:
+    async def grades_historical(
+        self, *, symbol: str | None = None
+    ) -> list[HistoricalGrade]:
         """Get historical analyst grades."""
         return await self._request(  # type: ignore[attr-defined]
             "grades-historical",
             params={"symbol": symbol},
         )
 
-    async def grades_consensus(self, *, symbol: str | None = None) -> list[GradesConsensus]:
+    async def grades_consensus(
+        self, *, symbol: str | None = None
+    ) -> list[GradesConsensus]:
         """Get analyst grades consensus."""
         return await self._request(  # type: ignore[attr-defined]
             "grades-consensus",

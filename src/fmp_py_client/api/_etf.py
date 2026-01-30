@@ -29,21 +29,27 @@ class ETFMixin:
             params={"symbol": symbol},
         )
 
-    async def etf_country_weightings(self, *, symbol: str | None = None) -> list[ETFCountryWeighting]:
+    async def etf_country_weightings(
+        self, *, symbol: str | None = None
+    ) -> list[ETFCountryWeighting]:
         """Get ETF country weightings."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/country-weightings",
             params={"symbol": symbol},
         )
 
-    async def etf_asset_exposure(self, *, symbol: str | None = None) -> list[ETFAssetExposure]:
+    async def etf_asset_exposure(
+        self, *, symbol: str | None = None
+    ) -> list[ETFAssetExposure]:
         """Get ETF asset class exposure."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/asset-exposure",
             params={"symbol": symbol},
         )
 
-    async def etf_sector_weightings(self, *, symbol: str | None = None) -> list[ETFSectorWeighting]:
+    async def etf_sector_weightings(
+        self, *, symbol: str | None = None
+    ) -> list[ETFSectorWeighting]:
         """Get ETF sector weightings."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/sector-weightings",
@@ -83,7 +89,9 @@ class ETFMixin:
             params={"name": name},
         )
 
-    async def funds_disclosure_dates(self, *, symbol: str | None = None) -> list[FundDisclosureDate]:
+    async def funds_disclosure_dates(
+        self, *, symbol: str | None = None
+    ) -> list[FundDisclosureDate]:
         """Get fund disclosure dates."""
         return await self._request(  # type: ignore[attr-defined]
             "funds/disclosure-dates",

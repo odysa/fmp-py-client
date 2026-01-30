@@ -6,7 +6,9 @@ from fmp_py_client.models import CustomDCF, DCFValuation, EnterpriseValue
 class ValuationMixin:
     """Valuation and discounted cash flow endpoints."""
 
-    async def discounted_cash_flow(self, *, symbol: str | None = None) -> list[DCFValuation]:
+    async def discounted_cash_flow(
+        self, *, symbol: str | None = None
+    ) -> list[DCFValuation]:
         """Get discounted cash flow valuation."""
         return await self._request(  # type: ignore[attr-defined]
             "discounted-cash-flow",
@@ -40,7 +42,9 @@ class ValuationMixin:
             params={"symbol": symbol},
         )
 
-    async def enterprise_values(self, *, symbol: str | None = None) -> list[EnterpriseValue]:
+    async def enterprise_values(
+        self, *, symbol: str | None = None
+    ) -> list[EnterpriseValue]:
         """Get enterprise values."""
         return await self._request(  # type: ignore[attr-defined]
             "enterprise-values",

@@ -53,7 +53,9 @@ class SearchMixin:
             params={"isin": isin},
         )
 
-    async def search_exchange_variants(self, *, symbol: str | None = None) -> list[ExchangeVariant]:
+    async def search_exchange_variants(
+        self, *, symbol: str | None = None
+    ) -> list[ExchangeVariant]:
         """Search for exchange variants of a symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "search-exchange-variants",

@@ -13,7 +13,9 @@ from fmp_py_client.models import (
 class ESGMixin:
     """ESG and sustainability endpoints."""
 
-    async def esg_disclosures(self, *, symbol: str | None = None) -> list[ESGDisclosure]:
+    async def esg_disclosures(
+        self, *, symbol: str | None = None
+    ) -> list[ESGDisclosure]:
         """Get ESG disclosures for a company."""
         return await self._request(  # type: ignore[attr-defined]
             "esg-disclosures",

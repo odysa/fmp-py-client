@@ -52,7 +52,9 @@ class CrowdfundingMixin:
             params={"page": page, "limit": limit},
         )
 
-    async def fundraising_search(self, *, name: str | None = None) -> list[EquityOffering]:
+    async def fundraising_search(
+        self, *, name: str | None = None
+    ) -> list[EquityOffering]:
         """Search fundraising data."""
         return await self._request(  # type: ignore[attr-defined]
             "fundraising-search",
