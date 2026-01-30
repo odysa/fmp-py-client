@@ -1,40 +1,49 @@
 """ETF and fund API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import (
+    ETFAssetExposure,
+    ETFCountryWeighting,
+    ETFHolding,
+    ETFInfo,
+    ETFSectorWeighting,
+    FundDisclosure,
+    FundDisclosureDate,
+    FundHolder,
+)
 
 
 class ETFMixin:
     """ETF and fund endpoints."""
 
-    async def etf_holdings(self, *, symbol: str | None = None) -> JSONArray:
+    async def etf_holdings(self, *, symbol: str | None = None) -> list[ETFHolding]:
         """Get ETF holdings."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/holdings",
             params={"symbol": symbol},
         )
 
-    async def etf_info(self, *, symbol: str | None = None) -> JSONArray:
+    async def etf_info(self, *, symbol: str | None = None) -> list[ETFInfo]:
         """Get ETF information."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/info",
             params={"symbol": symbol},
         )
 
-    async def etf_country_weightings(self, *, symbol: str | None = None) -> JSONArray:
+    async def etf_country_weightings(self, *, symbol: str | None = None) -> list[ETFCountryWeighting]:
         """Get ETF country weightings."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/country-weightings",
             params={"symbol": symbol},
         )
 
-    async def etf_asset_exposure(self, *, symbol: str | None = None) -> JSONArray:
+    async def etf_asset_exposure(self, *, symbol: str | None = None) -> list[ETFAssetExposure]:
         """Get ETF asset class exposure."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/asset-exposure",
             params={"symbol": symbol},
         )
 
-    async def etf_sector_weightings(self, *, symbol: str | None = None) -> JSONArray:
+    async def etf_sector_weightings(self, *, symbol: str | None = None) -> list[ETFSectorWeighting]:
         """Get ETF sector weightings."""
         return await self._request(  # type: ignore[attr-defined]
             "etf/sector-weightings",
@@ -43,7 +52,7 @@ class ETFMixin:
 
     async def funds_disclosure_holders_latest(
         self, *, symbol: str | None = None
-    ) -> JSONArray:
+    ) -> list[FundHolder]:
         """Get latest fund disclosure holders."""
         return await self._request(  # type: ignore[attr-defined]
             "funds/disclosure-holders-latest",
@@ -56,7 +65,7 @@ class ETFMixin:
         symbol: str | None = None,
         year: int | None = None,
         quarter: int | None = None,
-    ) -> JSONArray:
+    ) -> list[FundDisclosure]:
         """Get fund disclosure data."""
         return await self._request(  # type: ignore[attr-defined]
             "funds/disclosure",
@@ -67,14 +76,14 @@ class ETFMixin:
         self,
         *,
         name: str | None = None,
-    ) -> JSONArray:
+    ) -> list[FundHolder]:
         """Search fund disclosure holders."""
         return await self._request(  # type: ignore[attr-defined]
             "funds/disclosure-holders-search",
             params={"name": name},
         )
 
-    async def funds_disclosure_dates(self, *, symbol: str | None = None) -> JSONArray:
+    async def funds_disclosure_dates(self, *, symbol: str | None = None) -> list[FundDisclosureDate]:
         """Get fund disclosure dates."""
         return await self._request(  # type: ignore[attr-defined]
             "funds/disclosure-dates",

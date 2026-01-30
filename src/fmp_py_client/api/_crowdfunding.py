@@ -1,6 +1,6 @@
 """Crowdfunding and fundraising API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import CrowdfundingOffering, EquityOffering, IPOProspectus
 
 
 class CrowdfundingMixin:
@@ -11,7 +11,7 @@ class CrowdfundingMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[CrowdfundingOffering]:
         """Get latest crowdfunding offerings."""
         return await self._request(  # type: ignore[attr-defined]
             "crowdfunding-offerings-latest",
@@ -22,7 +22,7 @@ class CrowdfundingMixin:
         self,
         *,
         name: str | None = None,
-    ) -> JSONArray:
+    ) -> list[CrowdfundingOffering]:
         """Search crowdfunding offerings."""
         return await self._request(  # type: ignore[attr-defined]
             "crowdfunding-offerings-search",
@@ -33,7 +33,7 @@ class CrowdfundingMixin:
         self,
         *,
         cik: int | None = None,
-    ) -> JSONArray:
+    ) -> list[CrowdfundingOffering]:
         """Get crowdfunding offerings."""
         return await self._request(  # type: ignore[attr-defined]
             "crowdfunding-offerings",
@@ -45,14 +45,14 @@ class CrowdfundingMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[EquityOffering]:
         """Get latest fundraising data."""
         return await self._request(  # type: ignore[attr-defined]
             "fundraising-latest",
             params={"page": page, "limit": limit},
         )
 
-    async def fundraising_search(self, *, name: str | None = None) -> JSONArray:
+    async def fundraising_search(self, *, name: str | None = None) -> list[EquityOffering]:
         """Search fundraising data."""
         return await self._request(  # type: ignore[attr-defined]
             "fundraising-search",
@@ -63,13 +63,13 @@ class CrowdfundingMixin:
         self,
         *,
         cik: int | None = None,
-    ) -> JSONArray:
+    ) -> list[EquityOffering]:
         """Get fundraising data."""
         return await self._request(  # type: ignore[attr-defined]
             "fundraising",
             params={"cik": cik},
         )
 
-    async def ipos_prospectus(self) -> JSONArray:
+    async def ipos_prospectus(self) -> list[IPOProspectus]:
         """Get IPO prospectus data."""
         return await self._request("ipos-prospectus")  # type: ignore[attr-defined]

@@ -1,6 +1,16 @@
 """News and analyst data API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import (
+    AnalystEstimates,
+    FMPArticle,
+    Grade,
+    GradesConsensus,
+    HistoricalGrade,
+    NewsArticle,
+    PriceTargetConsensus,
+    PriceTargetSummary,
+    RatingSnapshot,
+)
 
 
 class NewsMixin:
@@ -11,7 +21,7 @@ class NewsMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[FMPArticle]:
         """Get FMP articles."""
         return await self._request(  # type: ignore[attr-defined]
             "fmp-articles",
@@ -23,7 +33,7 @@ class NewsMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get latest general news."""
         return await self._request(  # type: ignore[attr-defined]
             "news/general-latest",
@@ -35,7 +45,7 @@ class NewsMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get latest press releases."""
         return await self._request(  # type: ignore[attr-defined]
             "news/press-releases-latest",
@@ -47,7 +57,7 @@ class NewsMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get latest stock news."""
         return await self._request(  # type: ignore[attr-defined]
             "news/stock-latest",
@@ -59,7 +69,7 @@ class NewsMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get latest crypto news."""
         return await self._request(  # type: ignore[attr-defined]
             "news/crypto-latest",
@@ -71,7 +81,7 @@ class NewsMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get latest forex news."""
         return await self._request(  # type: ignore[attr-defined]
             "news/forex-latest",
@@ -82,7 +92,7 @@ class NewsMixin:
         self,
         *,
         symbols: str | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get press releases for a symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "news/press-releases",
@@ -93,7 +103,7 @@ class NewsMixin:
         self,
         *,
         symbols: str | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get stock news for a symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "news/stock",
@@ -104,7 +114,7 @@ class NewsMixin:
         self,
         *,
         symbols: str | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get crypto news for a symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "news/crypto",
@@ -115,7 +125,7 @@ class NewsMixin:
         self,
         *,
         symbols: str | None = None,
-    ) -> JSONArray:
+    ) -> list[NewsArticle]:
         """Get forex news for a pair."""
         return await self._request(  # type: ignore[attr-defined]
             "news/forex",
@@ -129,56 +139,56 @@ class NewsMixin:
         period: str | None = None,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[AnalystEstimates]:
         """Get analyst estimates."""
         return await self._request(  # type: ignore[attr-defined]
             "analyst-estimates",
             params={"symbol": symbol, "period": period, "page": page, "limit": limit},
         )
 
-    async def ratings_snapshot(self, *, symbol: str | None = None) -> JSONArray:
+    async def ratings_snapshot(self, *, symbol: str | None = None) -> list[RatingSnapshot]:
         """Get ratings snapshot."""
         return await self._request(  # type: ignore[attr-defined]
             "ratings-snapshot",
             params={"symbol": symbol},
         )
 
-    async def ratings_historical(self, *, symbol: str | None = None) -> JSONArray:
+    async def ratings_historical(self, *, symbol: str | None = None) -> list[HistoricalGrade]:
         """Get historical ratings."""
         return await self._request(  # type: ignore[attr-defined]
             "ratings-historical",
             params={"symbol": symbol},
         )
 
-    async def price_target_summary(self, *, symbol: str | None = None) -> JSONArray:
+    async def price_target_summary(self, *, symbol: str | None = None) -> list[PriceTargetSummary]:
         """Get price target summary."""
         return await self._request(  # type: ignore[attr-defined]
             "price-target-summary",
             params={"symbol": symbol},
         )
 
-    async def price_target_consensus(self, *, symbol: str | None = None) -> JSONArray:
+    async def price_target_consensus(self, *, symbol: str | None = None) -> list[PriceTargetConsensus]:
         """Get price target consensus."""
         return await self._request(  # type: ignore[attr-defined]
             "price-target-consensus",
             params={"symbol": symbol},
         )
 
-    async def grades(self, *, symbol: str | None = None) -> JSONArray:
+    async def grades(self, *, symbol: str | None = None) -> list[Grade]:
         """Get analyst grades."""
         return await self._request(  # type: ignore[attr-defined]
             "grades",
             params={"symbol": symbol},
         )
 
-    async def grades_historical(self, *, symbol: str | None = None) -> JSONArray:
+    async def grades_historical(self, *, symbol: str | None = None) -> list[HistoricalGrade]:
         """Get historical analyst grades."""
         return await self._request(  # type: ignore[attr-defined]
             "grades-historical",
             params={"symbol": symbol},
         )
 
-    async def grades_consensus(self, *, symbol: str | None = None) -> JSONArray:
+    async def grades_consensus(self, *, symbol: str | None = None) -> list[GradesConsensus]:
         """Get analyst grades consensus."""
         return await self._request(  # type: ignore[attr-defined]
             "grades-consensus",

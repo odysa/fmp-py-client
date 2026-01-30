@@ -438,10 +438,11 @@ class TestModuleImports:
         assert Timeframe is not None
 
     def test_all_exports_match(self):
-        """Test that __all__ contains the expected exports."""
+        """Test that __all__ contains the expected core exports and models."""
         import fmp_py_client
 
-        expected_exports = {
+        # Core exports that must always be present
+        core_exports = {
             "AsyncFMPClient",
             "FMPAPIError",
             "FMPAuthenticationError",
@@ -454,4 +455,141 @@ class TestModuleImports:
             "Timeframe",
         }
 
+        # Model exports added for typed responses
+        model_exports = {
+            # Calendar
+            "Dividend",
+            "EarningsReport",
+            "EarningsTranscript",
+            "EarningsTranscriptDate",
+            "IPOCalendar",
+            "IPOProspectus",
+            "StockSplit",
+            # Company
+            "CompanyNote",
+            "CompanyProfile",
+            "CompanyScreenerResult",
+            "CompensationBenchmark",
+            "EmployeeCount",
+            "Executive",
+            "ExecutiveCompensation",
+            "MarketCap",
+            "ShareFloat",
+            "StockPeer",
+            # Crowdfunding
+            "CrowdfundingOffering",
+            "EquityOffering",
+            # Economics
+            "Commodity",
+            "Cryptocurrency",
+            "EconomicCalendarEvent",
+            "EconomicIndicator",
+            "ExchangeHoliday",
+            "ExchangeMarketHours",
+            "ForexPair",
+            "MarketRiskPremium",
+            "TreasuryRate",
+            # ESG
+            "COTAnalysis",
+            "COTReport",
+            "COTSymbol",
+            "ESGBenchmark",
+            "ESGDisclosure",
+            "ESGRating",
+            # ETF
+            "ETFAssetExposure",
+            "ETFCountryWeighting",
+            "ETFHolding",
+            "ETFInfo",
+            "ETFSectorWeighting",
+            "FundDisclosure",
+            "FundDisclosureDate",
+            "FundHolder",
+            # Financials
+            "BalanceSheetStatement",
+            "BalanceSheetStatementGrowth",
+            "CashFlowStatement",
+            "CashFlowStatementGrowth",
+            "FinancialGrowth",
+            "FinancialReportDate",
+            "IncomeStatement",
+            "IncomeStatementGrowth",
+            "LatestFinancialStatement",
+            "RevenueSegmentation",
+            # Government
+            "GovernmentTrade",
+            # Historical
+            "EODFull",
+            "EODLight",
+            "HistoricalChart",
+            # Insider
+            "AcquisitionOwnership",
+            "IndustryOwnershipSummary",
+            "InsiderStatistics",
+            "InsiderTrade",
+            "InsiderTransactionType",
+            "InstitutionalHolderAnalytics",
+            "InstitutionalOwnership",
+            "InstitutionalOwnershipDate",
+            "SymbolPositionsSummary",
+            # Market
+            "CIKEntry",
+            "DelistedCompany",
+            "HistoricalIndexConstituent",
+            "IndexConstituent",
+            "IndexInfo",
+            "StockListEntry",
+            "SymbolChange",
+            # Mergers
+            "MergerAcquisition",
+            # Metrics
+            "FinancialRatios",
+            "FinancialScores",
+            "KeyMetrics",
+            "OwnerEarnings",
+            # Movers
+            "StockMover",
+            # News
+            "AnalystEstimates",
+            "FMPArticle",
+            "Grade",
+            "GradesConsensus",
+            "HistoricalGrade",
+            "NewsArticle",
+            "PriceTargetConsensus",
+            "PriceTargetSummary",
+            "RatingSnapshot",
+            # Quotes
+            "AftermarketQuote",
+            "AftermarketTrade",
+            "PriceChange",
+            "ShortQuote",
+            "StockQuote",
+            # Search
+            "CIKSearchResult",
+            "ExchangeVariant",
+            "SearchResult",
+            # SEC
+            "IndustryClassification",
+            "SECCompanyProfile",
+            "SECFiling",
+            "SICCode",
+            # Sector
+            "IndustryPE",
+            "IndustryPerformance",
+            "SectorPE",
+            "SectorPerformance",
+            # Technical
+            "TechnicalIndicatorADX",
+            "TechnicalIndicatorMA",
+            "TechnicalIndicatorRSI",
+            "TechnicalIndicatorStdDev",
+            "TechnicalIndicatorWilliams",
+            # Valuation
+            "CustomDCF",
+            "DCFValuation",
+            "EnterpriseValue",
+        }
+
+        expected_exports = core_exports | model_exports
         assert set(fmp_py_client.__all__) == expected_exports

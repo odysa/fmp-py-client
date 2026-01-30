@@ -1,33 +1,44 @@
 """Company profile and data API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import (
+    CompanyNote,
+    CompanyProfile,
+    CompanyScreenerResult,
+    CompensationBenchmark,
+    EmployeeCount,
+    Executive,
+    ExecutiveCompensation,
+    MarketCap,
+    ShareFloat,
+    StockPeer,
+)
 
 
 class CompanyMixin:
     """Company profile and data endpoints."""
 
-    async def profile(self, *, symbol: str | None = None) -> JSONArray:
+    async def profile(self, *, symbol: str | None = None) -> list[CompanyProfile]:
         """Get company profile data."""
         return await self._request(  # type: ignore[attr-defined]
             "profile",
             params={"symbol": symbol},
         )
 
-    async def profile_cik(self, *, cik: int | None = None) -> JSONArray:
+    async def profile_cik(self, *, cik: int | None = None) -> list[CompanyProfile]:
         """Get company profile by CIK number."""
         return await self._request(  # type: ignore[attr-defined]
             "profile-cik",
             params={"cik": cik},
         )
 
-    async def company_notes(self, *, symbol: str | None = None) -> JSONArray:
+    async def company_notes(self, *, symbol: str | None = None) -> list[CompanyNote]:
         """Get company notes."""
         return await self._request(  # type: ignore[attr-defined]
             "company-notes",
             params={"symbol": symbol},
         )
 
-    async def stock_peers(self, *, symbol: str | None = None) -> JSONArray:
+    async def stock_peers(self, *, symbol: str | None = None) -> list[StockPeer]:
         """Get stock peer comparison."""
         return await self._request(  # type: ignore[attr-defined]
             "stock-peers",
@@ -55,7 +66,7 @@ class CompanyMixin:
         is_fund: bool | None = None,
         is_actively_trading: bool | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[CompanyScreenerResult]:
         """Screen companies by various criteria."""
         return await self._request(  # type: ignore[attr-defined]
             "company-screener",
@@ -81,21 +92,23 @@ class CompanyMixin:
             },
         )
 
-    async def key_executives(self, *, symbol: str | None = None) -> JSONArray:
+    async def key_executives(self, *, symbol: str | None = None) -> list[Executive]:
         """Get key executives for a company."""
         return await self._request(  # type: ignore[attr-defined]
             "key-executives",
             params={"symbol": symbol},
         )
 
-    async def executive_compensation(self, *, symbol: str | None = None) -> JSONArray:
+    async def executive_compensation(
+        self, *, symbol: str | None = None
+    ) -> list[ExecutiveCompensation]:
         """Get executive compensation data."""
         return await self._request(  # type: ignore[attr-defined]
             "governance-executive-compensation",
             params={"symbol": symbol},
         )
 
-    async def employee_count(self, *, symbol: str | None = None) -> JSONArray:
+    async def employee_count(self, *, symbol: str | None = None) -> list[EmployeeCount]:
         """Get employee count for a company."""
         return await self._request(  # type: ignore[attr-defined]
             "employee-count",
@@ -104,14 +117,16 @@ class CompanyMixin:
 
     async def historical_employee_count(
         self, *, symbol: str | None = None
-    ) -> JSONArray:
+    ) -> list[EmployeeCount]:
         """Get historical employee count."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-employee-count",
             params={"symbol": symbol},
         )
 
-    async def market_capitalization(self, *, symbol: str | None = None) -> JSONArray:
+    async def market_capitalization(
+        self, *, symbol: str | None = None
+    ) -> list[MarketCap]:
         """Get current market capitalization."""
         return await self._request(  # type: ignore[attr-defined]
             "market-capitalization",
@@ -120,7 +135,7 @@ class CompanyMixin:
 
     async def market_capitalization_batch(
         self, *, symbols: str | None = None
-    ) -> JSONArray:
+    ) -> list[MarketCap]:
         """Get market capitalization for multiple symbols (comma-separated)."""
         return await self._request(  # type: ignore[attr-defined]
             "market-capitalization-batch",
@@ -129,14 +144,14 @@ class CompanyMixin:
 
     async def historical_market_capitalization(
         self, *, symbol: str | None = None
-    ) -> JSONArray:
+    ) -> list[MarketCap]:
         """Get historical market capitalization."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-market-capitalization",
             params={"symbol": symbol},
         )
 
-    async def shares_float(self, *, symbol: str | None = None) -> JSONArray:
+    async def shares_float(self, *, symbol: str | None = None) -> list[ShareFloat]:
         """Get shares float data."""
         return await self._request(  # type: ignore[attr-defined]
             "shares-float",
@@ -148,13 +163,13 @@ class CompanyMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[ShareFloat]:
         """Get all shares float data."""
         return await self._request(  # type: ignore[attr-defined]
             "shares-float-all",
             params={"page": page, "limit": limit},
         )
 
-    async def executive_compensation_benchmark(self) -> JSONArray:
+    async def executive_compensation_benchmark(self) -> list[CompensationBenchmark]:
         """Get executive compensation benchmark."""
         return await self._request("executive-compensation-benchmark")  # type: ignore[attr-defined]

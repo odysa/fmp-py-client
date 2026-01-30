@@ -1,6 +1,11 @@
 """Sector and industry performance API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import (
+    IndustryPE,
+    IndustryPerformance,
+    SectorPE,
+    SectorPerformance,
+)
 
 
 class SectorMixin:
@@ -10,7 +15,7 @@ class SectorMixin:
         self,
         *,
         date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[SectorPerformance]:
         """Get sector performance snapshot."""
         return await self._request(  # type: ignore[attr-defined]
             "sector-performance-snapshot",
@@ -21,7 +26,7 @@ class SectorMixin:
         self,
         *,
         date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[IndustryPerformance]:
         """Get industry performance snapshot."""
         return await self._request(  # type: ignore[attr-defined]
             "industry-performance-snapshot",
@@ -32,7 +37,7 @@ class SectorMixin:
         self,
         *,
         sector: str | None = None,
-    ) -> JSONArray:
+    ) -> list[SectorPerformance]:
         """Get historical sector performance."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-sector-performance",
@@ -43,7 +48,7 @@ class SectorMixin:
         self,
         *,
         industry: str | None = None,
-    ) -> JSONArray:
+    ) -> list[IndustryPerformance]:
         """Get historical industry performance."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-industry-performance",
@@ -54,7 +59,7 @@ class SectorMixin:
         self,
         *,
         date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[SectorPE]:
         """Get sector P/E ratio snapshot."""
         return await self._request(  # type: ignore[attr-defined]
             "sector-pe-snapshot",
@@ -65,7 +70,7 @@ class SectorMixin:
         self,
         *,
         date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[IndustryPE]:
         """Get industry P/E ratio snapshot."""
         return await self._request(  # type: ignore[attr-defined]
             "industry-pe-snapshot",
@@ -76,7 +81,7 @@ class SectorMixin:
         self,
         *,
         sector: str | None = None,
-    ) -> JSONArray:
+    ) -> list[SectorPE]:
         """Get historical sector P/E ratios."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-sector-pe",
@@ -87,7 +92,7 @@ class SectorMixin:
         self,
         *,
         industry: str | None = None,
-    ) -> JSONArray:
+    ) -> list[IndustryPE]:
         """Get historical industry P/E ratios."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-industry-pe",

@@ -1,6 +1,13 @@
 """Technical indicators API endpoints."""
 
-from fmp_py_client._types import JSONArray, Timeframe
+from fmp_py_client._types import Timeframe
+from fmp_py_client.models import (
+    TechnicalIndicatorADX,
+    TechnicalIndicatorMA,
+    TechnicalIndicatorRSI,
+    TechnicalIndicatorStdDev,
+    TechnicalIndicatorWilliams,
+)
 
 
 class TechnicalMixin:
@@ -12,7 +19,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorMA]:
         """Get Simple Moving Average (SMA)."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/sma",
@@ -29,7 +36,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorMA]:
         """Get Exponential Moving Average (EMA)."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/ema",
@@ -46,7 +53,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorMA]:
         """Get Weighted Moving Average (WMA)."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/wma",
@@ -63,7 +70,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorMA]:
         """Get Double Exponential Moving Average (DEMA)."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/dema",
@@ -80,7 +87,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorMA]:
         """Get Triple Exponential Moving Average (TEMA)."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/tema",
@@ -97,7 +104,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorRSI]:
         """Get Relative Strength Index (RSI)."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/rsi",
@@ -114,7 +121,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorStdDev]:
         """Get Standard Deviation."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/standarddeviation",
@@ -131,7 +138,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorWilliams]:
         """Get Williams %R."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/williams",
@@ -148,7 +155,7 @@ class TechnicalMixin:
         symbol: str | None = None,
         period_length: int | None = None,
         timeframe: Timeframe | None = None,
-    ) -> JSONArray:
+    ) -> list[TechnicalIndicatorADX]:
         """Get Average Directional Index (ADX)."""
         return await self._request(  # type: ignore[attr-defined]
             "technical-indicators/adx",

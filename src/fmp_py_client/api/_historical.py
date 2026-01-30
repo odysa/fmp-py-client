@@ -1,6 +1,6 @@
 """Historical price API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import EODFull, EODLight, HistoricalChart
 
 
 class HistoricalMixin:
@@ -12,7 +12,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[EODLight]:
         """Get light historical end-of-day prices."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-price-eod/light",
@@ -25,7 +25,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[EODFull]:
         """Get full historical end-of-day prices."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-price-eod/full",
@@ -38,7 +38,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[EODFull]:
         """Get non-split-adjusted historical end-of-day prices."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-price-eod/non-split-adjusted",
@@ -51,7 +51,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[EODFull]:
         """Get dividend-adjusted historical end-of-day prices."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-price-eod/dividend-adjusted",
@@ -64,7 +64,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[HistoricalChart]:
         """Get 1-minute interval chart data."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-chart/1min",
@@ -77,7 +77,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[HistoricalChart]:
         """Get 5-minute interval chart data."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-chart/5min",
@@ -90,7 +90,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[HistoricalChart]:
         """Get 15-minute interval chart data."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-chart/15min",
@@ -103,7 +103,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[HistoricalChart]:
         """Get 30-minute interval chart data."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-chart/30min",
@@ -116,7 +116,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[HistoricalChart]:
         """Get 1-hour interval chart data."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-chart/1hour",
@@ -129,7 +129,7 @@ class HistoricalMixin:
         *,
         from_date: str | None = None,
         to_date: str | None = None,
-    ) -> JSONArray:
+    ) -> list[HistoricalChart]:
         """Get 4-hour interval chart data."""
         return await self._request(  # type: ignore[attr-defined]
             "historical-chart/4hour",

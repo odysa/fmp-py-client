@@ -1,6 +1,16 @@
 """Insider and institutional trading API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import (
+    AcquisitionOwnership,
+    IndustryOwnershipSummary,
+    InsiderStatistics,
+    InsiderTrade,
+    InsiderTransactionType,
+    InstitutionalHolderAnalytics,
+    InstitutionalOwnership,
+    InstitutionalOwnershipDate,
+    SymbolPositionsSummary,
+)
 
 
 class InsiderMixin:
@@ -11,7 +21,7 @@ class InsiderMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[InsiderTrade]:
         """Get latest insider trades."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/latest",
@@ -23,7 +33,7 @@ class InsiderMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[InsiderTrade]:
         """Search insider trades."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/search",
@@ -34,20 +44,20 @@ class InsiderMixin:
         self,
         *,
         name: str | None = None,
-    ) -> JSONArray:
+    ) -> list[InsiderTrade]:
         """Get insider trades by reporting name."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/reporting-name",
             params={"name": name},
         )
 
-    async def insider_trading_transaction_type(self) -> JSONArray:
+    async def insider_trading_transaction_type(self) -> list[InsiderTransactionType]:
         """Get insider trading transaction types."""
         return await self._request("insider-trading-transaction-type")  # type: ignore[attr-defined]
 
     async def insider_trading_statistics(
         self, *, symbol: str | None = None
-    ) -> JSONArray:
+    ) -> list[InsiderStatistics]:
         """Get insider trading statistics."""
         return await self._request(  # type: ignore[attr-defined]
             "insider-trading/statistics",
@@ -58,7 +68,7 @@ class InsiderMixin:
         self,
         *,
         symbol: str | None = None,
-    ) -> JSONArray:
+    ) -> list[AcquisitionOwnership]:
         """Get acquisition of beneficial ownership data."""
         return await self._request(  # type: ignore[attr-defined]
             "acquisition-of-beneficial-ownership",
@@ -70,7 +80,7 @@ class InsiderMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[InstitutionalOwnership]:
         """Get latest institutional ownership."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/latest",
@@ -83,7 +93,7 @@ class InsiderMixin:
         cik: int | None = None,
         year: int | None = None,
         quarter: int | None = None,
-    ) -> JSONArray:
+    ) -> list[InstitutionalOwnership]:
         """Get institutional ownership extract."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/extract",
@@ -94,7 +104,7 @@ class InsiderMixin:
         self,
         *,
         cik: int | None = None,
-    ) -> JSONArray:
+    ) -> list[InstitutionalOwnershipDate]:
         """Get institutional ownership data dates."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/dates",
@@ -109,7 +119,7 @@ class InsiderMixin:
         quarter: int | None = None,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[InstitutionalHolderAnalytics]:
         """Get institutional holder analytics."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/extract-analytics/holder",
@@ -127,7 +137,7 @@ class InsiderMixin:
         *,
         cik: int | None = None,
         page: int | None = None,
-    ) -> JSONArray:
+    ) -> list[InstitutionalHolderAnalytics]:
         """Get institutional holder performance summary."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/holder-performance-summary",
@@ -140,7 +150,7 @@ class InsiderMixin:
         cik: int | None = None,
         year: int | None = None,
         quarter: int | None = None,
-    ) -> JSONArray:
+    ) -> list[IndustryOwnershipSummary]:
         """Get institutional holder industry breakdown."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/holder-industry-breakdown",
@@ -153,7 +163,7 @@ class InsiderMixin:
         symbol: str | None = None,
         year: int | None = None,
         quarter: int | None = None,
-    ) -> JSONArray:
+    ) -> list[SymbolPositionsSummary]:
         """Get institutional symbol positions summary."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/symbol-positions-summary",
@@ -165,7 +175,7 @@ class InsiderMixin:
         *,
         year: int | None = None,
         quarter: int | None = None,
-    ) -> JSONArray:
+    ) -> list[IndustryOwnershipSummary]:
         """Get institutional ownership industry summary."""
         return await self._request(  # type: ignore[attr-defined]
             "institutional-ownership/industry-summary",

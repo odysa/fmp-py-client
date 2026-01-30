@@ -1,20 +1,10 @@
-"""FMP (Financial Modeling Prep) API client."""
+"""Response models for FMP API endpoints.
 
-from fmp_py_client._client import AsyncFMPClient
-from fmp_py_client._exceptions import (
-    FMPAPIError,
-    FMPAuthenticationError,
-    FMPConnectionError,
-    FMPError,
-    FMPNotFoundError,
-    FMPRateLimitError,
-    FMPTimeoutError,
-)
-from fmp_py_client._types import Period, Timeframe
+This module provides TypedDict definitions for all API response types,
+enabling type safety and IDE autocomplete for API responses.
+"""
 
-# Re-export models for convenient access
-from fmp_py_client.models import (
-    # Calendar
+from fmp_py_client.models.calendar import (
     Dividend,
     EarningsReport,
     EarningsTranscript,
@@ -22,7 +12,8 @@ from fmp_py_client.models import (
     IPOCalendar,
     IPOProspectus,
     StockSplit,
-    # Company
+)
+from fmp_py_client.models.company import (
     CompanyNote,
     CompanyProfile,
     CompanyScreenerResult,
@@ -33,10 +24,12 @@ from fmp_py_client.models import (
     MarketCap,
     ShareFloat,
     StockPeer,
-    # Crowdfunding
+)
+from fmp_py_client.models.crowdfunding import (
     CrowdfundingOffering,
     EquityOffering,
-    # Economics
+)
+from fmp_py_client.models.economics import (
     Commodity,
     Cryptocurrency,
     EconomicCalendarEvent,
@@ -46,14 +39,16 @@ from fmp_py_client.models import (
     ForexPair,
     MarketRiskPremium,
     TreasuryRate,
-    # ESG
+)
+from fmp_py_client.models.esg import (
     COTAnalysis,
     COTReport,
     COTSymbol,
     ESGBenchmark,
     ESGDisclosure,
     ESGRating,
-    # ETF
+)
+from fmp_py_client.models.etf import (
     ETFAssetExposure,
     ETFCountryWeighting,
     ETFHolding,
@@ -62,7 +57,8 @@ from fmp_py_client.models import (
     FundDisclosure,
     FundDisclosureDate,
     FundHolder,
-    # Financials
+)
+from fmp_py_client.models.financials import (
     BalanceSheetStatement,
     BalanceSheetStatementGrowth,
     CashFlowStatement,
@@ -73,13 +69,16 @@ from fmp_py_client.models import (
     IncomeStatementGrowth,
     LatestFinancialStatement,
     RevenueSegmentation,
-    # Government
+)
+from fmp_py_client.models.government import (
     GovernmentTrade,
-    # Historical
+)
+from fmp_py_client.models.historical import (
     EODFull,
     EODLight,
     HistoricalChart,
-    # Insider
+)
+from fmp_py_client.models.insider import (
     AcquisitionOwnership,
     IndustryOwnershipSummary,
     InsiderStatistics,
@@ -89,7 +88,8 @@ from fmp_py_client.models import (
     InstitutionalOwnership,
     InstitutionalOwnershipDate,
     SymbolPositionsSummary,
-    # Market
+)
+from fmp_py_client.models.market import (
     CIKEntry,
     DelistedCompany,
     HistoricalIndexConstituent,
@@ -97,16 +97,20 @@ from fmp_py_client.models import (
     IndexInfo,
     StockListEntry,
     SymbolChange,
-    # Mergers
+)
+from fmp_py_client.models.mergers import (
     MergerAcquisition,
-    # Metrics
+)
+from fmp_py_client.models.metrics import (
     FinancialRatios,
     FinancialScores,
     KeyMetrics,
     OwnerEarnings,
-    # Movers
+)
+from fmp_py_client.models.movers import (
     StockMover,
-    # News
+)
+from fmp_py_client.models.news import (
     AnalystEstimates,
     FMPArticle,
     Grade,
@@ -116,53 +120,46 @@ from fmp_py_client.models import (
     PriceTargetConsensus,
     PriceTargetSummary,
     RatingSnapshot,
-    # Quotes
+)
+from fmp_py_client.models.quotes import (
     AftermarketQuote,
     AftermarketTrade,
     PriceChange,
     ShortQuote,
     StockQuote,
-    # Search
+)
+from fmp_py_client.models.search import (
     CIKSearchResult,
     ExchangeVariant,
     SearchResult,
-    # SEC
+)
+from fmp_py_client.models.sec import (
     IndustryClassification,
     SECCompanyProfile,
     SECFiling,
     SICCode,
-    # Sector
+)
+from fmp_py_client.models.sector import (
     IndustryPE,
     IndustryPerformance,
     SectorPE,
     SectorPerformance,
-    # Technical
+)
+from fmp_py_client.models.technical import (
     TechnicalIndicatorADX,
     TechnicalIndicatorMA,
     TechnicalIndicatorRSI,
     TechnicalIndicatorStdDev,
     TechnicalIndicatorWilliams,
-    # Valuation
+)
+from fmp_py_client.models.valuation import (
     CustomDCF,
     DCFValuation,
     EnterpriseValue,
 )
 
 __all__ = [
-    # Client
-    "AsyncFMPClient",
-    # Exceptions
-    "FMPAPIError",
-    "FMPAuthenticationError",
-    "FMPConnectionError",
-    "FMPError",
-    "FMPNotFoundError",
-    "FMPRateLimitError",
-    "FMPTimeoutError",
-    # Enums
-    "Period",
-    "Timeframe",
-    # Models - Calendar
+    # Calendar
     "Dividend",
     "EarningsReport",
     "EarningsTranscript",
@@ -170,7 +167,7 @@ __all__ = [
     "IPOCalendar",
     "IPOProspectus",
     "StockSplit",
-    # Models - Company
+    # Company
     "CompanyNote",
     "CompanyProfile",
     "CompanyScreenerResult",
@@ -181,10 +178,10 @@ __all__ = [
     "MarketCap",
     "ShareFloat",
     "StockPeer",
-    # Models - Crowdfunding
+    # Crowdfunding
     "CrowdfundingOffering",
     "EquityOffering",
-    # Models - Economics
+    # Economics
     "Commodity",
     "Cryptocurrency",
     "EconomicCalendarEvent",
@@ -194,14 +191,14 @@ __all__ = [
     "ForexPair",
     "MarketRiskPremium",
     "TreasuryRate",
-    # Models - ESG
+    # ESG
     "COTAnalysis",
     "COTReport",
     "COTSymbol",
     "ESGBenchmark",
     "ESGDisclosure",
     "ESGRating",
-    # Models - ETF
+    # ETF
     "ETFAssetExposure",
     "ETFCountryWeighting",
     "ETFHolding",
@@ -210,7 +207,7 @@ __all__ = [
     "FundDisclosure",
     "FundDisclosureDate",
     "FundHolder",
-    # Models - Financials
+    # Financials
     "BalanceSheetStatement",
     "BalanceSheetStatementGrowth",
     "CashFlowStatement",
@@ -221,13 +218,13 @@ __all__ = [
     "IncomeStatementGrowth",
     "LatestFinancialStatement",
     "RevenueSegmentation",
-    # Models - Government
+    # Government
     "GovernmentTrade",
-    # Models - Historical
+    # Historical
     "EODFull",
     "EODLight",
     "HistoricalChart",
-    # Models - Insider
+    # Insider
     "AcquisitionOwnership",
     "IndustryOwnershipSummary",
     "InsiderStatistics",
@@ -237,7 +234,7 @@ __all__ = [
     "InstitutionalOwnership",
     "InstitutionalOwnershipDate",
     "SymbolPositionsSummary",
-    # Models - Market
+    # Market
     "CIKEntry",
     "DelistedCompany",
     "HistoricalIndexConstituent",
@@ -245,16 +242,16 @@ __all__ = [
     "IndexInfo",
     "StockListEntry",
     "SymbolChange",
-    # Models - Mergers
+    # Mergers
     "MergerAcquisition",
-    # Models - Metrics
+    # Metrics
     "FinancialRatios",
     "FinancialScores",
     "KeyMetrics",
     "OwnerEarnings",
-    # Models - Movers
+    # Movers
     "StockMover",
-    # Models - News
+    # News
     "AnalystEstimates",
     "FMPArticle",
     "Grade",
@@ -264,33 +261,33 @@ __all__ = [
     "PriceTargetConsensus",
     "PriceTargetSummary",
     "RatingSnapshot",
-    # Models - Quotes
+    # Quotes
     "AftermarketQuote",
     "AftermarketTrade",
     "PriceChange",
     "ShortQuote",
     "StockQuote",
-    # Models - Search
+    # Search
     "CIKSearchResult",
     "ExchangeVariant",
     "SearchResult",
-    # Models - SEC
+    # SEC
     "IndustryClassification",
     "SECCompanyProfile",
     "SECFiling",
     "SICCode",
-    # Models - Sector
+    # Sector
     "IndustryPE",
     "IndustryPerformance",
     "SectorPE",
     "SectorPerformance",
-    # Models - Technical
+    # Technical
     "TechnicalIndicatorADX",
     "TechnicalIndicatorMA",
     "TechnicalIndicatorRSI",
     "TechnicalIndicatorStdDev",
     "TechnicalIndicatorWilliams",
-    # Models - Valuation
+    # Valuation
     "CustomDCF",
     "DCFValuation",
     "EnterpriseValue",

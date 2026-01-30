@@ -1,6 +1,6 @@
 """Mergers and acquisitions API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import MergerAcquisition
 
 
 class MergersMixin:
@@ -11,7 +11,7 @@ class MergersMixin:
         *,
         page: int | None = None,
         limit: int | None = None,
-    ) -> JSONArray:
+    ) -> list[MergerAcquisition]:
         """Get latest M&A activity."""
         return await self._request(  # type: ignore[attr-defined]
             "mergers-acquisitions-latest",
@@ -20,7 +20,7 @@ class MergersMixin:
 
     async def mergers_acquisitions_search(
         self, *, name: str | None = None
-    ) -> JSONArray:
+    ) -> list[MergerAcquisition]:
         """Search M&A activity by company name."""
         return await self._request(  # type: ignore[attr-defined]
             "mergers-acquisitions-search",

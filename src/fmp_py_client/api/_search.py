@@ -1,6 +1,6 @@
 """Search API endpoints."""
 
-from fmp_py_client._types import JSONArray
+from fmp_py_client.models import CIKSearchResult, ExchangeVariant, SearchResult
 
 
 class SearchMixin:
@@ -12,7 +12,7 @@ class SearchMixin:
         query: str | None = None,
         limit: int | None = None,
         exchange: str | None = None,
-    ) -> JSONArray:
+    ) -> list[SearchResult]:
         """Search for stock symbols matching a query."""
         return await self._request(  # type: ignore[attr-defined]
             "search-symbol",
@@ -25,35 +25,35 @@ class SearchMixin:
         query: str | None = None,
         limit: int | None = None,
         exchange: str | None = None,
-    ) -> JSONArray:
+    ) -> list[SearchResult]:
         """Search for company names matching a query."""
         return await self._request(  # type: ignore[attr-defined]
             "search-name",
             params={"query": query, "limit": limit, "exchange": exchange},
         )
 
-    async def search_cik(self, *, cik: int | None = None) -> JSONArray:
+    async def search_cik(self, *, cik: int | None = None) -> list[CIKSearchResult]:
         """Search by CIK number."""
         return await self._request(  # type: ignore[attr-defined]
             "search-cik",
             params={"cik": cik},
         )
 
-    async def search_cusip(self, *, cusip: str | None = None) -> JSONArray:
+    async def search_cusip(self, *, cusip: str | None = None) -> list[SearchResult]:
         """Search by CUSIP number."""
         return await self._request(  # type: ignore[attr-defined]
             "search-cusip",
             params={"cusip": cusip},
         )
 
-    async def search_isin(self, *, isin: str | None = None) -> JSONArray:
+    async def search_isin(self, *, isin: str | None = None) -> list[SearchResult]:
         """Search by ISIN number."""
         return await self._request(  # type: ignore[attr-defined]
             "search-isin",
             params={"isin": isin},
         )
 
-    async def search_exchange_variants(self, *, symbol: str | None = None) -> JSONArray:
+    async def search_exchange_variants(self, *, symbol: str | None = None) -> list[ExchangeVariant]:
         """Search for exchange variants of a symbol."""
         return await self._request(  # type: ignore[attr-defined]
             "search-exchange-variants",
